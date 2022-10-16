@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "@deliberative/crypto": "../crypto",
+    "algosdk": "^1.21.0",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "hi-base32": "^0.5.1"
+  }
+}
