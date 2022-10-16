@@ -1,0 +1,7 @@
+{
+    "files.associations": {
+        "export.h": "c",
+        "crypto_vrf.h": "c",
+        "crypto_vrf_ietfdraft03.h": "c"
+    }
+}

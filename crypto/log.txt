@@ -1,0 +1,1822 @@
+
+> @deliberative/crypto@0.6.7 build /home/wave909/Artem/crypto
+> npm-run-all -s wasm code
+
+
+> @deliberative/crypto@0.6.7 wasm /home/wave909/Artem/crypto
+> cross-env NODE_ENV=production node scripts/compileMethods.js
+
+Successfully compiled dcrypto c methods to Wasm.
+
+> @deliberative/crypto@0.6.7 code /home/wave909/Artem/crypto
+> cross-env NODE_ENV=production rollup -c
+
+[36m
+[1msrc/index.ts[22m → [1mlib/index.min.js[22m...[39m
+-----------------------------
+Rollup File Analysis
+-----------------------------
+bundle size:    317.154 KB
+original size:  356.874 KB
+code reduction: 11.13 %
+module count:   40
+
+██████████████████████████████████████░░░░░░░░░░░░
+file:            /src/c/build/dcryptoMethodsModule.js
+bundle space:    76.45 %
+rendered size:   242.457 KB
+original size:   247.053 KB
+code reduction:  1.86 %
+dependents:      20
+  - /src/asymmetric/keyPair.ts
+  - /src/asymmetric/sign.ts
+  - /src/asymmetric/verify.ts
+  - /src/asymmetric/encrypt.ts
+  - /src/asymmetric/decrypt.ts
+  - /src/symmetric/encrypt.ts
+  - /src/symmetric/decrypt.ts
+  - /src/utils/randomBytes.ts
+  - /src/hash/sha512.ts
+  - /src/hash/argon2.ts
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/hash/verifyMerkleProof.ts
+  - /src/hash/vrf_prove.ts
+  - /src/shamir/splitSecret.ts
+  - /src/shamir/restoreSecret.ts
+  - /src/utils/needleInHaystack.ts
+  - /src/utils/randomNumberInRange.ts
+  - /src/utils/arrayRandomShuffle.ts
+  - /src/index.ts
+
+██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/wordlist.json
+bundle space:    5.43 %
+rendered size:   17.229 KB
+original size:   23.359 KB
+code reduction:  26.24 %
+dependents:      2
+  - /src/mnemonic/generateMnemonic.ts
+  - /src/mnemonic/validateMnemonic.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/needleInHaystack.ts
+bundle space:    1.22 %
+rendered size:   3.857 KB
+original size:   4.814 KB
+code reduction:  19.88 %
+dependents:      1
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/keyPair.ts
+bundle space:    1.12 %
+rendered size:   3.555 KB
+original size:   4.449 KB
+code reduction:  20.09 %
+dependents:      2
+  - /src/asymmetric/index.ts
+  - /src/mnemonic/keyPairFromMnemonic.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/index.ts
+bundle space:    1.09 %
+rendered size:   3.455 KB
+original size:   4.372 KB
+code reduction:  20.97 %
+dependents:      0
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/interfaces.ts
+bundle space:    1 %
+rendered size:   3.173 KB
+original size:   3.329 KB
+code reduction:  4.69 %
+dependents:      19
+  - /src/asymmetric/memory.ts
+  - /src/asymmetric/keyPair.ts
+  - /src/asymmetric/sign.ts
+  - /src/asymmetric/verify.ts
+  - /src/asymmetric/encrypt.ts
+  - /src/asymmetric/decrypt.ts
+  - /src/symmetric/memory.ts
+  - /src/symmetric/encrypt.ts
+  - /src/symmetric/decrypt.ts
+  - /src/utils/memory.ts
+  - /src/hash/memory.ts
+  - /src/hash/sha512.ts
+  - /src/hash/argon2.ts
+  - /src/mnemonic/keyPairFromMnemonic.ts
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/hash/verifyMerkleProof.ts
+  - /src/utils/needleInHaystack.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/memory.ts
+bundle space:    0.98 %
+rendered size:   3.117 KB
+original size:   4.159 KB
+code reduction:  25.05 %
+dependents:      6
+  - /src/asymmetric/keyPair.ts
+  - /src/asymmetric/sign.ts
+  - /src/asymmetric/verify.ts
+  - /src/asymmetric/encrypt.ts
+  - /src/asymmetric/decrypt.ts
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/getMerkleProof.ts
+bundle space:    0.88 %
+rendered size:   2.776 KB
+original size:   3.698 KB
+code reduction:  24.93 %
+dependents:      1
+  - /src/hash/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/getMerkleRoot.ts
+bundle space:    0.77 %
+rendered size:   2.446 KB
+original size:   3.366 KB
+code reduction:  27.33 %
+dependents:      1
+  - /src/hash/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/validateMnemonic.ts
+bundle space:    0.66 %
+rendered size:   2.108 KB
+original size:   2.853 KB
+code reduction:  26.11 %
+dependents:      2
+  - /src/mnemonic/keyPairFromMnemonic.ts
+  - /src/mnemonic/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/shamir/splitSecret.ts
+bundle space:    0.64 %
+rendered size:   2.03 KB
+original size:   2.803 KB
+code reduction:  27.58 %
+dependents:      1
+  - /src/shamir/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/decrypt.ts
+bundle space:    0.64 %
+rendered size:   2.02 KB
+original size:   2.895 KB
+code reduction:  30.22 %
+dependents:      1
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/encrypt.ts
+bundle space:    0.63 %
+rendered size:   2.01 KB
+original size:   2.881 KB
+code reduction:  30.23 %
+dependents:      1
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/verifyMerkleProof.ts
+bundle space:    0.59 %
+rendered size:   1.875 KB
+original size:   2.722 KB
+code reduction:  31.12 %
+dependents:      1
+  - /src/hash/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/symmetric/decrypt.ts
+bundle space:    0.58 %
+rendered size:   1.854 KB
+original size:   2.706 KB
+code reduction:  31.49 %
+dependents:      1
+  - /src/symmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/argon2.ts
+bundle space:    0.57 %
+rendered size:   1.804 KB
+original size:   2.711 KB
+code reduction:  33.46 %
+dependents:      1
+  - /src/mnemonic/keyPairFromMnemonic.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/symmetric/encrypt.ts
+bundle space:    0.56 %
+rendered size:   1.766 KB
+original size:   2.614 KB
+code reduction:  32.44 %
+dependents:      1
+  - /src/symmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/shamir/restoreSecret.ts
+bundle space:    0.54 %
+rendered size:   1.722 KB
+original size:   2.499 KB
+code reduction:  31.09 %
+dependents:      1
+  - /src/shamir/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/memory.ts
+bundle space:    0.5 %
+rendered size:   1.588 KB
+original size:   2.403 KB
+code reduction:  33.92 %
+dependents:      7
+  - /src/hash/sha512.ts
+  - /src/hash/argon2.ts
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/hash/verifyMerkleProof.ts
+  - /src/hash/index.ts
+  - /src/utils/needleInHaystack.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/vrf_prove.ts
+bundle space:    0.49 %
+rendered size:   1.551 KB
+original size:   1.737 KB
+code reduction:  10.71 %
+dependents:      1
+  - /src/hash/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/generateMnemonic.ts
+bundle space:    0.47 %
+rendered size:   1.478 KB
+original size:   2.275 KB
+code reduction:  35.03 %
+dependents:      1
+  - /src/mnemonic/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/sign.ts
+bundle space:    0.4 %
+rendered size:   1.258 KB
+original size:   2.119 KB
+code reduction:  40.63 %
+dependents:      1
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/memoryLenToPages.ts
+bundle space:    0.4 %
+rendered size:   1.253 KB
+original size:   1.331 KB
+code reduction:  5.86 %
+dependents:      6
+  - /src/asymmetric/memory.ts
+  - /src/symmetric/memory.ts
+  - /src/utils/memory.ts
+  - /src/hash/memory.ts
+  - /src/hash/vrf_prove.ts
+  - /src/shamir/memory.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/symmetric/memory.ts
+bundle space:    0.37 %
+rendered size:   1.186 KB
+original size:   2.063 KB
+code reduction:  42.51 %
+dependents:      3
+  - /src/symmetric/encrypt.ts
+  - /src/symmetric/decrypt.ts
+  - /src/symmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/verify.ts
+bundle space:    0.36 %
+rendered size:   1.156 KB
+original size:   2.021 KB
+code reduction:  42.8 %
+dependents:      1
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/keyPairFromMnemonic.ts
+bundle space:    0.35 %
+rendered size:   1.114 KB
+original size:   2.061 KB
+code reduction:  45.95 %
+dependents:      1
+  - /src/mnemonic/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/memory.ts
+bundle space:    0.33 %
+rendered size:   1.04 KB
+original size:   1.713 KB
+code reduction:  39.29 %
+dependents:      5
+  - /src/utils/randomBytes.ts
+  - /src/utils/needleInHaystack.ts
+  - /src/utils/randomNumberInRange.ts
+  - /src/utils/arrayRandomShuffle.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/sha512.ts
+bundle space:    0.3 %
+rendered size:   959 Bytes
+original size:   1.784 KB
+code reduction:  46.24 %
+dependents:      7
+  - /src/mnemonic/generateMnemonic.ts
+  - /src/mnemonic/validateMnemonic.ts
+  - /src/mnemonic/keyPairFromMnemonic.ts
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/hash/index.ts
+  - /src/utils/needleInHaystack.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/randomBytes.ts
+bundle space:    0.3 %
+rendered size:   949 Bytes
+original size:   1.718 KB
+code reduction:  44.76 %
+dependents:      3
+  - /src/mnemonic/generateMnemonic.ts
+  - /src/hash/argon2.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/shamir/memory.ts
+bundle space:    0.25 %
+rendered size:   795 Bytes
+original size:   1.484 KB
+code reduction:  46.43 %
+dependents:      3
+  - /src/shamir/splitSecret.ts
+  - /src/shamir/restoreSecret.ts
+  - /src/shamir/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/arrayRandomShuffle.ts
+bundle space:    0.23 %
+rendered size:   733 Bytes
+original size:   1.573 KB
+code reduction:  53.4 %
+dependents:      2
+  - /src/utils/arrayRandomSubset.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/isUint8Array.ts
+bundle space:    0.23 %
+rendered size:   724 Bytes
+original size:   794 Bytes
+code reduction:  8.82 %
+dependents:      4
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/utils/needleInHaystack.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/randomNumberInRange.ts
+bundle space:    0.2 %
+rendered size:   622 Bytes
+original size:   1.407 KB
+code reduction:  55.79 %
+dependents:      2
+  - /src/utils/arrayRandomShuffle.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/arrayRandomSubset.ts
+bundle space:    0.16 %
+rendered size:   518 Bytes
+original size:   1.247 KB
+code reduction:  58.46 %
+dependents:      1
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/index.ts
+bundle space:    0.07 %
+rendered size:   236 Bytes
+original size:   1.227 KB
+code reduction:  80.77 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/index.ts
+bundle space:    0.06 %
+rendered size:   181 Bytes
+original size:   1.045 KB
+code reduction:  82.68 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/index.ts
+bundle space:    0.06 %
+rendered size:   179 Bytes
+original size:   961 Bytes
+code reduction:  81.37 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/index.ts
+bundle space:    0.04 %
+rendered size:   141 Bytes
+original size:   928 Bytes
+code reduction:  84.81 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/symmetric/index.ts
+bundle space:    0.04 %
+rendered size:   121 Bytes
+original size:   835 Bytes
+code reduction:  85.51 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/shamir/index.ts
+bundle space:    0.04 %
+rendered size:   118 Bytes
+original size:   865 Bytes
+code reduction:  86.36 %
+dependents:      1
+  - /src/index.ts
+
+
+[1m[33m(!) Plugin typescript: @rollup/plugin-typescript TS6133: 'dcryptoMemory' is declared but its value is never read.[39m[22m
+[1msrc/hash/vrf_prove.ts: (1:1)[22m
+[90m
+[7m1[0m import dcryptoMemory from "./memory";
+[7m [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[39m
+[1m[33m(!) Plugin typescript: @rollup/plugin-typescript TS6133: 'crypto_hash_sha512_BYTES' is declared but its value is never read.[39m[22m
+[1msrc/hash/vrf_prove.ts: (3:1)[22m
+[90m
+[7m3[0m import { crypto_hash_sha512_BYTES } from "../utils/interfaces";
+[7m [0m [91m~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[39m
+[1m[33m(!) Plugin typescript: @rollup/plugin-typescript TS2322: Type '{ keyPair: (module?: DCryptoMethodsModule | undefined) => Promise<SignKeyPair>; keyPairFromSeed: (seed: Uint8Array, module?: DCryptoMethodsModule | undefined) => Promise<...>; ... 28 more ...; loadWasmMemory: { ...; }; }' is not assignable to type 'DeliberativeCrypto'.
+  Object literal may only specify known properties, and 'vrf_prove' does not exist in type 'DeliberativeCrypto'.[39m[22m
+[1msrc/index.ts: (267:3)[22m
+[90m
+[7m267[0m   vrf_prove: hash.vrf_prove,
+[7m   [0m [91m  ~~~~~~~~~~~~~~~~~~~~~~~~~[0m
+[39m
+[32mcreated [1mlib/index.min.js[22m in [1m5.9s[22m[39m
+[36m
+[1msrc/index.ts[22m → [1mlib/index.mjs, lib/index.node.mjs, lib/index.cjs[22m...[39m
+-----------------------------
+Rollup File Analysis
+-----------------------------
+bundle size:    317.154 KB
+original size:  356.874 KB
+code reduction: 11.13 %
+module count:   40
+
+██████████████████████████████████████░░░░░░░░░░░░
+file:            /src/c/build/dcryptoMethodsModule.js
+bundle space:    76.45 %
+rendered size:   242.457 KB
+original size:   247.053 KB
+code reduction:  1.86 %
+dependents:      20
+  - /src/asymmetric/keyPair.ts
+  - /src/asymmetric/sign.ts
+  - /src/asymmetric/verify.ts
+  - /src/asymmetric/encrypt.ts
+  - /src/asymmetric/decrypt.ts
+  - /src/symmetric/encrypt.ts
+  - /src/symmetric/decrypt.ts
+  - /src/utils/randomBytes.ts
+  - /src/hash/sha512.ts
+  - /src/hash/argon2.ts
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/hash/verifyMerkleProof.ts
+  - /src/hash/vrf_prove.ts
+  - /src/shamir/splitSecret.ts
+  - /src/shamir/restoreSecret.ts
+  - /src/utils/needleInHaystack.ts
+  - /src/utils/randomNumberInRange.ts
+  - /src/utils/arrayRandomShuffle.ts
+  - /src/index.ts
+
+██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/wordlist.json
+bundle space:    5.43 %
+rendered size:   17.229 KB
+original size:   23.359 KB
+code reduction:  26.24 %
+dependents:      2
+  - /src/mnemonic/generateMnemonic.ts
+  - /src/mnemonic/validateMnemonic.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/needleInHaystack.ts
+bundle space:    1.22 %
+rendered size:   3.857 KB
+original size:   4.814 KB
+code reduction:  19.88 %
+dependents:      1
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/keyPair.ts
+bundle space:    1.12 %
+rendered size:   3.555 KB
+original size:   4.449 KB
+code reduction:  20.09 %
+dependents:      2
+  - /src/asymmetric/index.ts
+  - /src/mnemonic/keyPairFromMnemonic.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/index.ts
+bundle space:    1.09 %
+rendered size:   3.455 KB
+original size:   4.372 KB
+code reduction:  20.97 %
+dependents:      0
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/interfaces.ts
+bundle space:    1 %
+rendered size:   3.173 KB
+original size:   3.329 KB
+code reduction:  4.69 %
+dependents:      19
+  - /src/asymmetric/memory.ts
+  - /src/asymmetric/keyPair.ts
+  - /src/asymmetric/sign.ts
+  - /src/asymmetric/verify.ts
+  - /src/asymmetric/encrypt.ts
+  - /src/asymmetric/decrypt.ts
+  - /src/symmetric/memory.ts
+  - /src/symmetric/encrypt.ts
+  - /src/symmetric/decrypt.ts
+  - /src/utils/memory.ts
+  - /src/hash/memory.ts
+  - /src/hash/sha512.ts
+  - /src/hash/argon2.ts
+  - /src/mnemonic/keyPairFromMnemonic.ts
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/hash/verifyMerkleProof.ts
+  - /src/utils/needleInHaystack.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/memory.ts
+bundle space:    0.98 %
+rendered size:   3.117 KB
+original size:   4.159 KB
+code reduction:  25.05 %
+dependents:      6
+  - /src/asymmetric/keyPair.ts
+  - /src/asymmetric/sign.ts
+  - /src/asymmetric/verify.ts
+  - /src/asymmetric/encrypt.ts
+  - /src/asymmetric/decrypt.ts
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/getMerkleProof.ts
+bundle space:    0.88 %
+rendered size:   2.776 KB
+original size:   3.698 KB
+code reduction:  24.93 %
+dependents:      1
+  - /src/hash/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/getMerkleRoot.ts
+bundle space:    0.77 %
+rendered size:   2.446 KB
+original size:   3.366 KB
+code reduction:  27.33 %
+dependents:      1
+  - /src/hash/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/validateMnemonic.ts
+bundle space:    0.66 %
+rendered size:   2.108 KB
+original size:   2.853 KB
+code reduction:  26.11 %
+dependents:      2
+  - /src/mnemonic/keyPairFromMnemonic.ts
+  - /src/mnemonic/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/shamir/splitSecret.ts
+bundle space:    0.64 %
+rendered size:   2.03 KB
+original size:   2.803 KB
+code reduction:  27.58 %
+dependents:      1
+  - /src/shamir/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/decrypt.ts
+bundle space:    0.64 %
+rendered size:   2.02 KB
+original size:   2.895 KB
+code reduction:  30.22 %
+dependents:      1
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/encrypt.ts
+bundle space:    0.63 %
+rendered size:   2.01 KB
+original size:   2.881 KB
+code reduction:  30.23 %
+dependents:      1
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/verifyMerkleProof.ts
+bundle space:    0.59 %
+rendered size:   1.875 KB
+original size:   2.722 KB
+code reduction:  31.12 %
+dependents:      1
+  - /src/hash/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/symmetric/decrypt.ts
+bundle space:    0.58 %
+rendered size:   1.854 KB
+original size:   2.706 KB
+code reduction:  31.49 %
+dependents:      1
+  - /src/symmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/argon2.ts
+bundle space:    0.57 %
+rendered size:   1.804 KB
+original size:   2.711 KB
+code reduction:  33.46 %
+dependents:      1
+  - /src/mnemonic/keyPairFromMnemonic.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/symmetric/encrypt.ts
+bundle space:    0.56 %
+rendered size:   1.766 KB
+original size:   2.614 KB
+code reduction:  32.44 %
+dependents:      1
+  - /src/symmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/shamir/restoreSecret.ts
+bundle space:    0.54 %
+rendered size:   1.722 KB
+original size:   2.499 KB
+code reduction:  31.09 %
+dependents:      1
+  - /src/shamir/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/memory.ts
+bundle space:    0.5 %
+rendered size:   1.588 KB
+original size:   2.403 KB
+code reduction:  33.92 %
+dependents:      7
+  - /src/hash/sha512.ts
+  - /src/hash/argon2.ts
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/hash/verifyMerkleProof.ts
+  - /src/hash/index.ts
+  - /src/utils/needleInHaystack.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/vrf_prove.ts
+bundle space:    0.49 %
+rendered size:   1.551 KB
+original size:   1.737 KB
+code reduction:  10.71 %
+dependents:      1
+  - /src/hash/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/generateMnemonic.ts
+bundle space:    0.47 %
+rendered size:   1.478 KB
+original size:   2.275 KB
+code reduction:  35.03 %
+dependents:      1
+  - /src/mnemonic/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/sign.ts
+bundle space:    0.4 %
+rendered size:   1.258 KB
+original size:   2.119 KB
+code reduction:  40.63 %
+dependents:      1
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/memoryLenToPages.ts
+bundle space:    0.4 %
+rendered size:   1.253 KB
+original size:   1.331 KB
+code reduction:  5.86 %
+dependents:      6
+  - /src/asymmetric/memory.ts
+  - /src/symmetric/memory.ts
+  - /src/utils/memory.ts
+  - /src/hash/memory.ts
+  - /src/hash/vrf_prove.ts
+  - /src/shamir/memory.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/symmetric/memory.ts
+bundle space:    0.37 %
+rendered size:   1.186 KB
+original size:   2.063 KB
+code reduction:  42.51 %
+dependents:      3
+  - /src/symmetric/encrypt.ts
+  - /src/symmetric/decrypt.ts
+  - /src/symmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/verify.ts
+bundle space:    0.36 %
+rendered size:   1.156 KB
+original size:   2.021 KB
+code reduction:  42.8 %
+dependents:      1
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/keyPairFromMnemonic.ts
+bundle space:    0.35 %
+rendered size:   1.114 KB
+original size:   2.061 KB
+code reduction:  45.95 %
+dependents:      1
+  - /src/mnemonic/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/memory.ts
+bundle space:    0.33 %
+rendered size:   1.04 KB
+original size:   1.713 KB
+code reduction:  39.29 %
+dependents:      5
+  - /src/utils/randomBytes.ts
+  - /src/utils/needleInHaystack.ts
+  - /src/utils/randomNumberInRange.ts
+  - /src/utils/arrayRandomShuffle.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/sha512.ts
+bundle space:    0.3 %
+rendered size:   959 Bytes
+original size:   1.784 KB
+code reduction:  46.24 %
+dependents:      7
+  - /src/mnemonic/generateMnemonic.ts
+  - /src/mnemonic/validateMnemonic.ts
+  - /src/mnemonic/keyPairFromMnemonic.ts
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/hash/index.ts
+  - /src/utils/needleInHaystack.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/randomBytes.ts
+bundle space:    0.3 %
+rendered size:   949 Bytes
+original size:   1.718 KB
+code reduction:  44.76 %
+dependents:      3
+  - /src/mnemonic/generateMnemonic.ts
+  - /src/hash/argon2.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/shamir/memory.ts
+bundle space:    0.25 %
+rendered size:   795 Bytes
+original size:   1.484 KB
+code reduction:  46.43 %
+dependents:      3
+  - /src/shamir/splitSecret.ts
+  - /src/shamir/restoreSecret.ts
+  - /src/shamir/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/arrayRandomShuffle.ts
+bundle space:    0.23 %
+rendered size:   733 Bytes
+original size:   1.573 KB
+code reduction:  53.4 %
+dependents:      2
+  - /src/utils/arrayRandomSubset.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/isUint8Array.ts
+bundle space:    0.23 %
+rendered size:   724 Bytes
+original size:   794 Bytes
+code reduction:  8.82 %
+dependents:      4
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/utils/needleInHaystack.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/randomNumberInRange.ts
+bundle space:    0.2 %
+rendered size:   622 Bytes
+original size:   1.407 KB
+code reduction:  55.79 %
+dependents:      2
+  - /src/utils/arrayRandomShuffle.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/arrayRandomSubset.ts
+bundle space:    0.16 %
+rendered size:   518 Bytes
+original size:   1.247 KB
+code reduction:  58.46 %
+dependents:      1
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/index.ts
+bundle space:    0.07 %
+rendered size:   236 Bytes
+original size:   1.227 KB
+code reduction:  80.77 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/index.ts
+bundle space:    0.06 %
+rendered size:   181 Bytes
+original size:   1.045 KB
+code reduction:  82.68 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/index.ts
+bundle space:    0.06 %
+rendered size:   179 Bytes
+original size:   961 Bytes
+code reduction:  81.37 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/index.ts
+bundle space:    0.04 %
+rendered size:   141 Bytes
+original size:   928 Bytes
+code reduction:  84.81 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/symmetric/index.ts
+bundle space:    0.04 %
+rendered size:   121 Bytes
+original size:   835 Bytes
+code reduction:  85.51 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/shamir/index.ts
+bundle space:    0.04 %
+rendered size:   118 Bytes
+original size:   865 Bytes
+code reduction:  86.36 %
+dependents:      1
+  - /src/index.ts
+
+
+-----------------------------
+Rollup File Analysis
+-----------------------------
+bundle size:    317.154 KB
+original size:  356.874 KB
+code reduction: 11.13 %
+module count:   40
+
+██████████████████████████████████████░░░░░░░░░░░░
+file:            /src/c/build/dcryptoMethodsModule.js
+bundle space:    76.45 %
+rendered size:   242.457 KB
+original size:   247.053 KB
+code reduction:  1.86 %
+dependents:      20
+  - /src/asymmetric/keyPair.ts
+  - /src/asymmetric/sign.ts
+  - /src/asymmetric/verify.ts
+  - /src/asymmetric/encrypt.ts
+  - /src/asymmetric/decrypt.ts
+  - /src/symmetric/encrypt.ts
+  - /src/symmetric/decrypt.ts
+  - /src/utils/randomBytes.ts
+  - /src/hash/sha512.ts
+  - /src/hash/argon2.ts
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/hash/verifyMerkleProof.ts
+  - /src/hash/vrf_prove.ts
+  - /src/shamir/splitSecret.ts
+  - /src/shamir/restoreSecret.ts
+  - /src/utils/needleInHaystack.ts
+  - /src/utils/randomNumberInRange.ts
+  - /src/utils/arrayRandomShuffle.ts
+  - /src/index.ts
+
+██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/wordlist.json
+bundle space:    5.43 %
+rendered size:   17.229 KB
+original size:   23.359 KB
+code reduction:  26.24 %
+dependents:      2
+  - /src/mnemonic/generateMnemonic.ts
+  - /src/mnemonic/validateMnemonic.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/needleInHaystack.ts
+bundle space:    1.22 %
+rendered size:   3.857 KB
+original size:   4.814 KB
+code reduction:  19.88 %
+dependents:      1
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/keyPair.ts
+bundle space:    1.12 %
+rendered size:   3.555 KB
+original size:   4.449 KB
+code reduction:  20.09 %
+dependents:      2
+  - /src/asymmetric/index.ts
+  - /src/mnemonic/keyPairFromMnemonic.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/index.ts
+bundle space:    1.09 %
+rendered size:   3.455 KB
+original size:   4.372 KB
+code reduction:  20.97 %
+dependents:      0
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/interfaces.ts
+bundle space:    1 %
+rendered size:   3.173 KB
+original size:   3.329 KB
+code reduction:  4.69 %
+dependents:      19
+  - /src/asymmetric/memory.ts
+  - /src/asymmetric/keyPair.ts
+  - /src/asymmetric/sign.ts
+  - /src/asymmetric/verify.ts
+  - /src/asymmetric/encrypt.ts
+  - /src/asymmetric/decrypt.ts
+  - /src/symmetric/memory.ts
+  - /src/symmetric/encrypt.ts
+  - /src/symmetric/decrypt.ts
+  - /src/utils/memory.ts
+  - /src/hash/memory.ts
+  - /src/hash/sha512.ts
+  - /src/hash/argon2.ts
+  - /src/mnemonic/keyPairFromMnemonic.ts
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/hash/verifyMerkleProof.ts
+  - /src/utils/needleInHaystack.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/memory.ts
+bundle space:    0.98 %
+rendered size:   3.117 KB
+original size:   4.159 KB
+code reduction:  25.05 %
+dependents:      6
+  - /src/asymmetric/keyPair.ts
+  - /src/asymmetric/sign.ts
+  - /src/asymmetric/verify.ts
+  - /src/asymmetric/encrypt.ts
+  - /src/asymmetric/decrypt.ts
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/getMerkleProof.ts
+bundle space:    0.88 %
+rendered size:   2.776 KB
+original size:   3.698 KB
+code reduction:  24.93 %
+dependents:      1
+  - /src/hash/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/getMerkleRoot.ts
+bundle space:    0.77 %
+rendered size:   2.446 KB
+original size:   3.366 KB
+code reduction:  27.33 %
+dependents:      1
+  - /src/hash/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/validateMnemonic.ts
+bundle space:    0.66 %
+rendered size:   2.108 KB
+original size:   2.853 KB
+code reduction:  26.11 %
+dependents:      2
+  - /src/mnemonic/keyPairFromMnemonic.ts
+  - /src/mnemonic/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/shamir/splitSecret.ts
+bundle space:    0.64 %
+rendered size:   2.03 KB
+original size:   2.803 KB
+code reduction:  27.58 %
+dependents:      1
+  - /src/shamir/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/decrypt.ts
+bundle space:    0.64 %
+rendered size:   2.02 KB
+original size:   2.895 KB
+code reduction:  30.22 %
+dependents:      1
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/encrypt.ts
+bundle space:    0.63 %
+rendered size:   2.01 KB
+original size:   2.881 KB
+code reduction:  30.23 %
+dependents:      1
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/verifyMerkleProof.ts
+bundle space:    0.59 %
+rendered size:   1.875 KB
+original size:   2.722 KB
+code reduction:  31.12 %
+dependents:      1
+  - /src/hash/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/symmetric/decrypt.ts
+bundle space:    0.58 %
+rendered size:   1.854 KB
+original size:   2.706 KB
+code reduction:  31.49 %
+dependents:      1
+  - /src/symmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/argon2.ts
+bundle space:    0.57 %
+rendered size:   1.804 KB
+original size:   2.711 KB
+code reduction:  33.46 %
+dependents:      1
+  - /src/mnemonic/keyPairFromMnemonic.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/symmetric/encrypt.ts
+bundle space:    0.56 %
+rendered size:   1.766 KB
+original size:   2.614 KB
+code reduction:  32.44 %
+dependents:      1
+  - /src/symmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/shamir/restoreSecret.ts
+bundle space:    0.54 %
+rendered size:   1.722 KB
+original size:   2.499 KB
+code reduction:  31.09 %
+dependents:      1
+  - /src/shamir/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/memory.ts
+bundle space:    0.5 %
+rendered size:   1.588 KB
+original size:   2.403 KB
+code reduction:  33.92 %
+dependents:      7
+  - /src/hash/sha512.ts
+  - /src/hash/argon2.ts
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/hash/verifyMerkleProof.ts
+  - /src/hash/index.ts
+  - /src/utils/needleInHaystack.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/vrf_prove.ts
+bundle space:    0.49 %
+rendered size:   1.551 KB
+original size:   1.737 KB
+code reduction:  10.71 %
+dependents:      1
+  - /src/hash/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/generateMnemonic.ts
+bundle space:    0.47 %
+rendered size:   1.478 KB
+original size:   2.275 KB
+code reduction:  35.03 %
+dependents:      1
+  - /src/mnemonic/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/sign.ts
+bundle space:    0.4 %
+rendered size:   1.258 KB
+original size:   2.119 KB
+code reduction:  40.63 %
+dependents:      1
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/memoryLenToPages.ts
+bundle space:    0.4 %
+rendered size:   1.253 KB
+original size:   1.331 KB
+code reduction:  5.86 %
+dependents:      6
+  - /src/asymmetric/memory.ts
+  - /src/symmetric/memory.ts
+  - /src/utils/memory.ts
+  - /src/hash/memory.ts
+  - /src/hash/vrf_prove.ts
+  - /src/shamir/memory.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/symmetric/memory.ts
+bundle space:    0.37 %
+rendered size:   1.186 KB
+original size:   2.063 KB
+code reduction:  42.51 %
+dependents:      3
+  - /src/symmetric/encrypt.ts
+  - /src/symmetric/decrypt.ts
+  - /src/symmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/verify.ts
+bundle space:    0.36 %
+rendered size:   1.156 KB
+original size:   2.021 KB
+code reduction:  42.8 %
+dependents:      1
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/keyPairFromMnemonic.ts
+bundle space:    0.35 %
+rendered size:   1.114 KB
+original size:   2.061 KB
+code reduction:  45.95 %
+dependents:      1
+  - /src/mnemonic/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/memory.ts
+bundle space:    0.33 %
+rendered size:   1.04 KB
+original size:   1.713 KB
+code reduction:  39.29 %
+dependents:      5
+  - /src/utils/randomBytes.ts
+  - /src/utils/needleInHaystack.ts
+  - /src/utils/randomNumberInRange.ts
+  - /src/utils/arrayRandomShuffle.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/sha512.ts
+bundle space:    0.3 %
+rendered size:   959 Bytes
+original size:   1.784 KB
+code reduction:  46.24 %
+dependents:      7
+  - /src/mnemonic/generateMnemonic.ts
+  - /src/mnemonic/validateMnemonic.ts
+  - /src/mnemonic/keyPairFromMnemonic.ts
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/hash/index.ts
+  - /src/utils/needleInHaystack.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/randomBytes.ts
+bundle space:    0.3 %
+rendered size:   949 Bytes
+original size:   1.718 KB
+code reduction:  44.76 %
+dependents:      3
+  - /src/mnemonic/generateMnemonic.ts
+  - /src/hash/argon2.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/shamir/memory.ts
+bundle space:    0.25 %
+rendered size:   795 Bytes
+original size:   1.484 KB
+code reduction:  46.43 %
+dependents:      3
+  - /src/shamir/splitSecret.ts
+  - /src/shamir/restoreSecret.ts
+  - /src/shamir/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/arrayRandomShuffle.ts
+bundle space:    0.23 %
+rendered size:   733 Bytes
+original size:   1.573 KB
+code reduction:  53.4 %
+dependents:      2
+  - /src/utils/arrayRandomSubset.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/isUint8Array.ts
+bundle space:    0.23 %
+rendered size:   724 Bytes
+original size:   794 Bytes
+code reduction:  8.82 %
+dependents:      4
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/utils/needleInHaystack.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/randomNumberInRange.ts
+bundle space:    0.2 %
+rendered size:   622 Bytes
+original size:   1.407 KB
+code reduction:  55.79 %
+dependents:      2
+  - /src/utils/arrayRandomShuffle.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/arrayRandomSubset.ts
+bundle space:    0.16 %
+rendered size:   518 Bytes
+original size:   1.247 KB
+code reduction:  58.46 %
+dependents:      1
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/index.ts
+bundle space:    0.07 %
+rendered size:   236 Bytes
+original size:   1.227 KB
+code reduction:  80.77 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/index.ts
+bundle space:    0.06 %
+rendered size:   181 Bytes
+original size:   1.045 KB
+code reduction:  82.68 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/index.ts
+bundle space:    0.06 %
+rendered size:   179 Bytes
+original size:   961 Bytes
+code reduction:  81.37 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/index.ts
+bundle space:    0.04 %
+rendered size:   141 Bytes
+original size:   928 Bytes
+code reduction:  84.81 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/symmetric/index.ts
+bundle space:    0.04 %
+rendered size:   121 Bytes
+original size:   835 Bytes
+code reduction:  85.51 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/shamir/index.ts
+bundle space:    0.04 %
+rendered size:   118 Bytes
+original size:   865 Bytes
+code reduction:  86.36 %
+dependents:      1
+  - /src/index.ts
+
+
+-----------------------------
+Rollup File Analysis
+-----------------------------
+bundle size:    317.154 KB
+original size:  356.874 KB
+code reduction: 11.13 %
+module count:   40
+
+██████████████████████████████████████░░░░░░░░░░░░
+file:            /src/c/build/dcryptoMethodsModule.js
+bundle space:    76.45 %
+rendered size:   242.457 KB
+original size:   247.053 KB
+code reduction:  1.86 %
+dependents:      20
+  - /src/asymmetric/keyPair.ts
+  - /src/asymmetric/sign.ts
+  - /src/asymmetric/verify.ts
+  - /src/asymmetric/encrypt.ts
+  - /src/asymmetric/decrypt.ts
+  - /src/symmetric/encrypt.ts
+  - /src/symmetric/decrypt.ts
+  - /src/utils/randomBytes.ts
+  - /src/hash/sha512.ts
+  - /src/hash/argon2.ts
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/hash/verifyMerkleProof.ts
+  - /src/hash/vrf_prove.ts
+  - /src/shamir/splitSecret.ts
+  - /src/shamir/restoreSecret.ts
+  - /src/utils/needleInHaystack.ts
+  - /src/utils/randomNumberInRange.ts
+  - /src/utils/arrayRandomShuffle.ts
+  - /src/index.ts
+
+██░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/wordlist.json
+bundle space:    5.43 %
+rendered size:   17.229 KB
+original size:   23.359 KB
+code reduction:  26.24 %
+dependents:      2
+  - /src/mnemonic/generateMnemonic.ts
+  - /src/mnemonic/validateMnemonic.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/needleInHaystack.ts
+bundle space:    1.22 %
+rendered size:   3.857 KB
+original size:   4.814 KB
+code reduction:  19.88 %
+dependents:      1
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/keyPair.ts
+bundle space:    1.12 %
+rendered size:   3.555 KB
+original size:   4.449 KB
+code reduction:  20.09 %
+dependents:      2
+  - /src/asymmetric/index.ts
+  - /src/mnemonic/keyPairFromMnemonic.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/index.ts
+bundle space:    1.09 %
+rendered size:   3.455 KB
+original size:   4.372 KB
+code reduction:  20.97 %
+dependents:      0
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/interfaces.ts
+bundle space:    1 %
+rendered size:   3.173 KB
+original size:   3.329 KB
+code reduction:  4.69 %
+dependents:      19
+  - /src/asymmetric/memory.ts
+  - /src/asymmetric/keyPair.ts
+  - /src/asymmetric/sign.ts
+  - /src/asymmetric/verify.ts
+  - /src/asymmetric/encrypt.ts
+  - /src/asymmetric/decrypt.ts
+  - /src/symmetric/memory.ts
+  - /src/symmetric/encrypt.ts
+  - /src/symmetric/decrypt.ts
+  - /src/utils/memory.ts
+  - /src/hash/memory.ts
+  - /src/hash/sha512.ts
+  - /src/hash/argon2.ts
+  - /src/mnemonic/keyPairFromMnemonic.ts
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/hash/verifyMerkleProof.ts
+  - /src/utils/needleInHaystack.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/memory.ts
+bundle space:    0.98 %
+rendered size:   3.117 KB
+original size:   4.159 KB
+code reduction:  25.05 %
+dependents:      6
+  - /src/asymmetric/keyPair.ts
+  - /src/asymmetric/sign.ts
+  - /src/asymmetric/verify.ts
+  - /src/asymmetric/encrypt.ts
+  - /src/asymmetric/decrypt.ts
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/getMerkleProof.ts
+bundle space:    0.88 %
+rendered size:   2.776 KB
+original size:   3.698 KB
+code reduction:  24.93 %
+dependents:      1
+  - /src/hash/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/getMerkleRoot.ts
+bundle space:    0.77 %
+rendered size:   2.446 KB
+original size:   3.366 KB
+code reduction:  27.33 %
+dependents:      1
+  - /src/hash/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/validateMnemonic.ts
+bundle space:    0.66 %
+rendered size:   2.108 KB
+original size:   2.853 KB
+code reduction:  26.11 %
+dependents:      2
+  - /src/mnemonic/keyPairFromMnemonic.ts
+  - /src/mnemonic/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/shamir/splitSecret.ts
+bundle space:    0.64 %
+rendered size:   2.03 KB
+original size:   2.803 KB
+code reduction:  27.58 %
+dependents:      1
+  - /src/shamir/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/decrypt.ts
+bundle space:    0.64 %
+rendered size:   2.02 KB
+original size:   2.895 KB
+code reduction:  30.22 %
+dependents:      1
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/encrypt.ts
+bundle space:    0.63 %
+rendered size:   2.01 KB
+original size:   2.881 KB
+code reduction:  30.23 %
+dependents:      1
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/verifyMerkleProof.ts
+bundle space:    0.59 %
+rendered size:   1.875 KB
+original size:   2.722 KB
+code reduction:  31.12 %
+dependents:      1
+  - /src/hash/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/symmetric/decrypt.ts
+bundle space:    0.58 %
+rendered size:   1.854 KB
+original size:   2.706 KB
+code reduction:  31.49 %
+dependents:      1
+  - /src/symmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/argon2.ts
+bundle space:    0.57 %
+rendered size:   1.804 KB
+original size:   2.711 KB
+code reduction:  33.46 %
+dependents:      1
+  - /src/mnemonic/keyPairFromMnemonic.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/symmetric/encrypt.ts
+bundle space:    0.56 %
+rendered size:   1.766 KB
+original size:   2.614 KB
+code reduction:  32.44 %
+dependents:      1
+  - /src/symmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/shamir/restoreSecret.ts
+bundle space:    0.54 %
+rendered size:   1.722 KB
+original size:   2.499 KB
+code reduction:  31.09 %
+dependents:      1
+  - /src/shamir/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/memory.ts
+bundle space:    0.5 %
+rendered size:   1.588 KB
+original size:   2.403 KB
+code reduction:  33.92 %
+dependents:      7
+  - /src/hash/sha512.ts
+  - /src/hash/argon2.ts
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/hash/verifyMerkleProof.ts
+  - /src/hash/index.ts
+  - /src/utils/needleInHaystack.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/vrf_prove.ts
+bundle space:    0.49 %
+rendered size:   1.551 KB
+original size:   1.737 KB
+code reduction:  10.71 %
+dependents:      1
+  - /src/hash/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/generateMnemonic.ts
+bundle space:    0.47 %
+rendered size:   1.478 KB
+original size:   2.275 KB
+code reduction:  35.03 %
+dependents:      1
+  - /src/mnemonic/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/sign.ts
+bundle space:    0.4 %
+rendered size:   1.258 KB
+original size:   2.119 KB
+code reduction:  40.63 %
+dependents:      1
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/memoryLenToPages.ts
+bundle space:    0.4 %
+rendered size:   1.253 KB
+original size:   1.331 KB
+code reduction:  5.86 %
+dependents:      6
+  - /src/asymmetric/memory.ts
+  - /src/symmetric/memory.ts
+  - /src/utils/memory.ts
+  - /src/hash/memory.ts
+  - /src/hash/vrf_prove.ts
+  - /src/shamir/memory.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/symmetric/memory.ts
+bundle space:    0.37 %
+rendered size:   1.186 KB
+original size:   2.063 KB
+code reduction:  42.51 %
+dependents:      3
+  - /src/symmetric/encrypt.ts
+  - /src/symmetric/decrypt.ts
+  - /src/symmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/verify.ts
+bundle space:    0.36 %
+rendered size:   1.156 KB
+original size:   2.021 KB
+code reduction:  42.8 %
+dependents:      1
+  - /src/asymmetric/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/keyPairFromMnemonic.ts
+bundle space:    0.35 %
+rendered size:   1.114 KB
+original size:   2.061 KB
+code reduction:  45.95 %
+dependents:      1
+  - /src/mnemonic/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/memory.ts
+bundle space:    0.33 %
+rendered size:   1.04 KB
+original size:   1.713 KB
+code reduction:  39.29 %
+dependents:      5
+  - /src/utils/randomBytes.ts
+  - /src/utils/needleInHaystack.ts
+  - /src/utils/randomNumberInRange.ts
+  - /src/utils/arrayRandomShuffle.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/sha512.ts
+bundle space:    0.3 %
+rendered size:   959 Bytes
+original size:   1.784 KB
+code reduction:  46.24 %
+dependents:      7
+  - /src/mnemonic/generateMnemonic.ts
+  - /src/mnemonic/validateMnemonic.ts
+  - /src/mnemonic/keyPairFromMnemonic.ts
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/hash/index.ts
+  - /src/utils/needleInHaystack.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/randomBytes.ts
+bundle space:    0.3 %
+rendered size:   949 Bytes
+original size:   1.718 KB
+code reduction:  44.76 %
+dependents:      3
+  - /src/mnemonic/generateMnemonic.ts
+  - /src/hash/argon2.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/shamir/memory.ts
+bundle space:    0.25 %
+rendered size:   795 Bytes
+original size:   1.484 KB
+code reduction:  46.43 %
+dependents:      3
+  - /src/shamir/splitSecret.ts
+  - /src/shamir/restoreSecret.ts
+  - /src/shamir/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/arrayRandomShuffle.ts
+bundle space:    0.23 %
+rendered size:   733 Bytes
+original size:   1.573 KB
+code reduction:  53.4 %
+dependents:      2
+  - /src/utils/arrayRandomSubset.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/isUint8Array.ts
+bundle space:    0.23 %
+rendered size:   724 Bytes
+original size:   794 Bytes
+code reduction:  8.82 %
+dependents:      4
+  - /src/hash/getMerkleRoot.ts
+  - /src/hash/getMerkleProof.ts
+  - /src/utils/needleInHaystack.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/randomNumberInRange.ts
+bundle space:    0.2 %
+rendered size:   622 Bytes
+original size:   1.407 KB
+code reduction:  55.79 %
+dependents:      2
+  - /src/utils/arrayRandomShuffle.ts
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/arrayRandomSubset.ts
+bundle space:    0.16 %
+rendered size:   518 Bytes
+original size:   1.247 KB
+code reduction:  58.46 %
+dependents:      1
+  - /src/utils/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/utils/index.ts
+bundle space:    0.07 %
+rendered size:   236 Bytes
+original size:   1.227 KB
+code reduction:  80.77 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/hash/index.ts
+bundle space:    0.06 %
+rendered size:   181 Bytes
+original size:   1.045 KB
+code reduction:  82.68 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/asymmetric/index.ts
+bundle space:    0.06 %
+rendered size:   179 Bytes
+original size:   961 Bytes
+code reduction:  81.37 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/mnemonic/index.ts
+bundle space:    0.04 %
+rendered size:   141 Bytes
+original size:   928 Bytes
+code reduction:  84.81 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/symmetric/index.ts
+bundle space:    0.04 %
+rendered size:   121 Bytes
+original size:   835 Bytes
+code reduction:  85.51 %
+dependents:      1
+  - /src/index.ts
+
+░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░
+file:            /src/shamir/index.ts
+bundle space:    0.04 %
+rendered size:   118 Bytes
+original size:   865 Bytes
+code reduction:  86.36 %
+dependents:      1
+  - /src/index.ts
+
+
+[32mcreated [1mlib/index.mjs, lib/index.node.mjs, lib/index.cjs[22m in [1m683ms[22m[39m
+
+> @deliberative/crypto@0.6.7 postbuild /home/wave909/Artem/crypto
+> node scripts/post.js
+
