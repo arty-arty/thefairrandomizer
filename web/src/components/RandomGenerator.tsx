@@ -9,8 +9,8 @@ import TextParagraph from "./TextParagraph";
 import { ColorRing, InfinitySpin, RotatingLines } from 'react-loader-spinner'
 import useCountDown from 'react-countdown-hook';
 
-const waitingTime = 11 * 1000; // initial time in milliseconds, defaults to 60000
-const interval = 1000; // interval to change remaining time amount, defaults to 1000
+const waitingTime = 11 * 1000; // initial time in milliseconds
+const interval = 1000; // interval to change remaining time amount
 
 type RandomGeneratorType = {
   min?: string;
@@ -67,7 +67,7 @@ const RandomGenerator: FunctionComponent<RandomGeneratorType> = ({
     const randData = await axios({
       method: 'post',
       url: 'https://api.algotool.app/random/proofOfRandom',
-      timeout: 10000, // only wait for 2s
+      timeout: 25000, // only wait for 20s
       data: { pk }
     }).catch(() => { setLoading(false); }) || { data: null }
     const data = randData?.data
@@ -93,7 +93,7 @@ const RandomGenerator: FunctionComponent<RandomGeneratorType> = ({
 
   return (
     <div className={styles.component2Div}>
-      <b className={styles.randomNumbersGenerator}>Random numbers generator</b>
+      <b className={styles.randomNumbersGenerator}>Random Numbers Generator</b>
       <div className={styles.frameDiv}>
         <div className={styles.minDiv}>
           <div className={styles.minDiv}>

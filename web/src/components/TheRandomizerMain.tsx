@@ -15,10 +15,10 @@ const TheRandomizerMain: FunctionComponent = () => {
       <ChestOpener
         chestImage="../closed.png"
         lootsTitle="Possible loot:"
-        loot1="Gold 50%"
-        loot2="Emeralds 30%"
-        loot3="Diamonds 15%"
-        loot4="Magical Algo Sphere 5% "
+        loot1="Gold 50% (0-127)"
+        loot2="Emeralds 25% (128-191)"
+        loot3="Diamonds 18.75% (192-239)"
+        loot4="Magical Algo Sphere 6.25% (240-255)"
       />
       <TextParagraph1 text="You can read more about project and watch the code here." />
     </div>

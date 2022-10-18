@@ -74,4 +74,5 @@
   color: var(--color-indigo-200);
   font-family: var(--font-tomorrow);
   width: 375px;
+  overflow-wrap: anywhere;
 }
