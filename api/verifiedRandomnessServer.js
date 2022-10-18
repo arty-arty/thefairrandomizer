@@ -4,31 +4,34 @@ const { generateKeyPairAndMemorize, sendProofOfRandomTransaction, algodclient } 
 const base32 = require("hi-base32");
 
 var express = require('express');
+var cors = require('cors')
 var app = express();
-var PORT = 3000;
+var PORT = 4000;
 
 app.use(express.json());
-
+app.use(cors())
 app.post('/', function (req, res) {
     console.log(req.body.name)
     res.end();
 })
 
 const futureBlockFrom = {}
-const safeSpace = 4;
+const safeSpace = 3;
 
 app.get('/publicKey', async function (req, res) {
-    const { futureBlockId } = req.query
+    let { futureBlockId } = req.query
     const { firstRound, lastRound } = await algodclient.getTransactionParams().do();
+    if (!futureBlockId) futureBlockId = firstRound + safeSpace;
+    if (!futureBlockId) { res.json({ firstRound }); return res.end() }
     if (!firstRound) { res.json({ firstRound }); return res.end() }
     if (!lastRound) { res.json({ firstRound }); return res.end() }
     console.log({ firstRound, lastRound, futureBlockId })
-    if (parseInt(futureBlockId) <= firstRound + safeSpace) { res.json({ firstRound }); return res.end() }
+    if (parseInt(futureBlockId) < firstRound + safeSpace) { res.json({ firstRound }); return res.end() }
 
     const { pk, sk } = await generateKeyPairAndMemorize()
     futureBlockFrom[pk] = futureBlockId;
     console.log({ futureBlockId });
-    res.json({ pk, firstRound })
+    res.json({ pk, firstRound, futureBlockId })
     return res.end();
 })
 
@@ -41,6 +44,8 @@ app.post('/proofOfRandom', async function (req, res) {
     //Put try catch here
     const futureBlockId = parseInt(futureBlockFrom[pk])
     const blk = await algodclient.block(futureBlockId).do();
+    //catch here with 5 5 second retries
+
     const blk_hash = base32.encode(blk["cert"]["prop"]["dig"]).replace(/=/g, "")
     console.log({ blk_hash });
 

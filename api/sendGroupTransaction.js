@@ -71,7 +71,7 @@ const sendProofOfRandomTransaction = async ({ blockSeed, blockId, pk }) => {
     const randNumber = Uint8Array.from(Buffer.from(proof, 'base64'))[0]
     const randNumberStr = String(randNumber).padStart(3, '0');
     console.log({ randNumberStr });
-    let noteText = `{"blockSeed": "` + blockSeed + `", "proof": "` + proof + `", "publicKey": "` + pk + `", "randNumber": "` + randNumberStr + `", "blockId": "` + blockId + `"}`
+    let noteText = `{"blockSeed": "` + blockSeed + `", "proof": "` + proof + `", "publicKey": "` + pk + `", "randNumber": "` + randNumberStr + `", "blockSeedTakenFromBlockWithId": "` + blockId + `"}`
     const enc = new TextEncoder();
     const note = enc.encode(noteText);
 

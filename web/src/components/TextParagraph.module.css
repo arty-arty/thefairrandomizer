@@ -1,0 +1,36 @@
+.textDiv {
+  align-self: stretch;
+  position: relative;
+  line-height: 131%;
+  display: inline-block;
+}
+
+.ignoreDiv {
+  position: relative;
+  width: 0;
+  height: 0;
+  flex-shrink: 0;
+}
+
+.textParagraphDiv,
+.widthScrubberDiv {
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.widthScrubberDiv {
+  flex-direction: row;
+  justify-content: flex-start;
+  gap: var(--gap-5xl);
+}
+
+.textParagraphDiv {
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  font-size: var(--font-size-base);
+  color: var(--color-gray-1100);
+  font-family: var(--font-tomorrow);
+  width: 375px;
+}

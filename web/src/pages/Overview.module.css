@@ -1,0 +1,11 @@
+.overviewDiv {
+  position: relative;
+  background-color: var(--white2);
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  padding: var(--padding-5xl) 0;
+  box-sizing: border-box;
+  align-items: center;
+  justify-content: center;
+}
