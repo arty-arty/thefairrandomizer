@@ -23,7 +23,7 @@ type RandData = {
   txUrl?: string;
 };
 
-const TechnicalData = ({ currentRound, randData, pk, timeLeft }) => {
+export const TechnicalData = ({ currentRound, randData, pk, timeLeft }) => {
   if (randData == null) return null;
 
 
@@ -66,7 +66,7 @@ const RandomGenerator: FunctionComponent<RandomGeneratorType> = ({
 
     const randData = await axios({
       method: 'post',
-      url: 'http://localhost:4000/proofOfRandom',
+      url: 'https://api.algotool.app/random/proofOfRandom',
       timeout: 10000, // only wait for 2s
       data: { pk }
     }).catch(() => { setLoading(false); }) || { data: null }
@@ -80,7 +80,7 @@ const RandomGenerator: FunctionComponent<RandomGeneratorType> = ({
     //fetch current round from backend by submitting zero
     //or better from algod
     setRandData({});
-    const roundData = await axios.get("http://localhost:4000/publicKey")
+    const roundData = await axios.get("https://api.algotool.app/random/publicKey")
     const firstRound = roundData?.data?.firstRound;
     console.log(currentRound);
     if (firstRound) { setCurrentRound(firstRound); setLoading(true); start(); }
@@ -151,7 +151,7 @@ const ResultBlock = () => {
 }
 
 export default RandomGenerator;
-module.exports = { RandomGenerator, TechnicalData }
+
 
 {/* <InfinitySpin
   width='200'

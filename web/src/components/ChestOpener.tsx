@@ -66,7 +66,7 @@ const ChestOpener: FunctionComponent<ChestOpenerType> = ({
     if (!pk) { setLoading(false); return; }//clear spinning wheel
     const randData = await axios({
       method: 'post',
-      url: 'http://localhost:4000/proofOfRandom',
+      url: 'https://api.algotool.app/random/proofOfRandom',
       timeout: 10000, // only wait for 10s
       data: { pk }
     }).catch(() => { setLoading(false); }) || { data: null }
@@ -80,7 +80,7 @@ const ChestOpener: FunctionComponent<ChestOpenerType> = ({
     //fetch current round from backend by submitting zero
     //or better from algod
     setRandData({});
-    const roundData = await axios.get("http://localhost:4000/publicKey")
+    const roundData = await axios.get("https://api.algotool.app/random/publicKey")
     const firstRound = roundData?.data?.firstRound;
     console.log(currentRound);
     if (firstRound) { setCurrentRound(firstRound); setLoading(true); }
