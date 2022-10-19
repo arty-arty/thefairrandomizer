@@ -8,6 +8,7 @@ import TextParagraph from "./TextParagraph";
 //import "react-loader-spinner/dist/loader/css/react-spinner-loader.css";
 import { ColorRing, InfinitySpin, RotatingLines } from 'react-loader-spinner'
 import useCountDown from 'react-countdown-hook';
+import { textDecoration } from "@chakra-ui/react";
 
 const waitingTime = 11 * 1000; // initial time in milliseconds
 const interval = 1000; // interval to change remaining time amount
@@ -44,7 +45,7 @@ export const TechnicalData = ({ currentRound, randData, pk, timeLeft }) => {
       <br />
       {randData?.randNumber ? "Result: " + parseInt(randData.randNumber, 10) : null}
       <br />
-      {randData.txId ? <a href={randData.txUrl}>Transaction: {randData.txId}</a> : null}
+      {randData.txId ? <a href={randData.txUrl} style={{ textDecoration: "underline" }}>Transaction: {randData.txId}</a> : null}
     </div>)
 }
 //@ts-ignore

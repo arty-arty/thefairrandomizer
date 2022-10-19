@@ -18,7 +18,7 @@ app.post('/', function (req, res) {
 const futureBlockFrom = {}
 const safeSpace = 3;
 
-app.get('/publicKey', async function (req, res) {
+app.get('/random/publicKey', async function (req, res) {
     let { futureBlockId } = req.query
     const { firstRound, lastRound } = await algodclient.getTransactionParams().do();
     if (!futureBlockId) futureBlockId = firstRound + safeSpace;
@@ -35,13 +35,14 @@ app.get('/publicKey', async function (req, res) {
     return res.end();
 })
 
-app.post('/proofOfRandom', async function (req, res) {
+app.post('/random/proofOfRandom', async function (req, res) {
     const input = req.body;
     console.log(input)
     const pk = input?.pk
 
     //If future is now and can get the seed from block
     //Put try catch here
+    if (!futureBlockFrom[pk]) { res.json({ pk: "invalid, get a new one at /random/publicKey" }); res.end(); return; }
     const futureBlockId = parseInt(futureBlockFrom[pk])
     const blk = await algodclient.block(futureBlockId).do();
     //catch here with 5 5 second retries
@@ -52,6 +53,7 @@ app.post('/proofOfRandom', async function (req, res) {
     if (pk) {
         const { proof, txId, txUrl, randNumber } = await sendProofOfRandomTransaction({ blockSeed: blk_hash, blockId: futureBlockId, pk });
         res.json({ proof, randNumber, txId, txUrl, futureBlockId, futureBlockHash: blk_hash, futureBlockUrl: "https://testnet.algoexplorer.io/block/" + futureBlockId })
+        delete futureBlockFrom[pk];
     }
     res.end();
 })

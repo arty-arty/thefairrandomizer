@@ -105,8 +105,9 @@ const sendProofOfRandomTransaction = async ({ blockSeed, blockId, pk }) => {
     console.log("Transaction " + tx.txId + " confirmed in round " + confirmedTxn["confirmed-round"]);
     console.log(lsig.address())
     //algosdk.makeLogicSigAccountTransactionSigner
+    delete skFrom[pk]
     return {
-        proof, randNumber: randNumberStr, txId: tx.txId, txUrl: "https://testnet.algoexplorer.io/tx/" + tx.txId
+        proof, randNumber: randNumberStr, txId: tx.txId, txUrl: "https://testnet.algoexplorer.io/tx/" + tx.txId, pk
     }
 }
 
