@@ -9,6 +9,7 @@ import TextParagraph from "./TextParagraph";
 import { ColorRing, InfinitySpin, RotatingLines } from 'react-loader-spinner'
 import useCountDown from 'react-countdown-hook';
 import { textDecoration } from "@chakra-ui/react";
+import { HexLoader } from "./HexLoader";
 
 const waitingTime = 11 * 1000; // initial time in milliseconds
 const interval = 1000; // interval to change remaining time amount
@@ -30,13 +31,13 @@ export const TechnicalData = ({ currentRound, randData, pk, timeLeft }) => {
 
   return (
     <div>
-      {timeLeft != 0 ? <div><RotatingLines
+      {/* {timeLeft != 0 ? <div><RotatingLines
         strokeColor="#003A8C"
         strokeWidth="5"
         animationDuration="1.0"
         width="45"
         visible={true}
-      />~{timeLeft / 1000} sec</div> : null}
+      />~{timeLeft / 1000} sec</div> : null} */}
       {currentRound ? "Current block: " + currentRound : null}
       <br />
       Seed will be taken 3 blocks later
@@ -141,8 +142,7 @@ const RandomGenerator: FunctionComponent<RandomGeneratorType> = ({
         Generate
       </Button>}
       <TechnicalData {...{ currentRound, randData, pk, timeLeft }}></TechnicalData>
-
-
+      {timeLeft != 0 ? <HexLoader timeLeft={timeLeft / 1000} /> : null}
     </div>
   );
 };

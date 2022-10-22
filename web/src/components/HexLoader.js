@@ -1,0 +1,103 @@
+import "./HexLoader.scss"
+
+export const HexLoader = ({ timeLeft }) => {
+    return (<main class="main container">
+        <div class="col col--full">
+            ~{timeLeft} sec
+            <div class="loader">
+
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+                <div class="hex"></div>
+            </div>
+        </div>
+    </main>)
+}

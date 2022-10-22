@@ -37,6 +37,7 @@ const decidePrize = (n: Number) => {
 import { TechnicalData } from "./RandomGenerator";
 import { RotatingLines } from "react-loader-spinner";
 import useCountDown from "react-countdown-hook";
+import { HexLoader } from "./HexLoader";
 const LootEnumeration = ({
   chestImage,
   lootsTitle,
@@ -123,15 +124,7 @@ const ChestOpener: FunctionComponent<ChestOpenerType> = ({
         {!loading ? <Button type="default" size="middle" shape="round" onClick={async () => { await clicked({ start }); }}>
           Open!
         </Button> :
-          <div>
-            <RotatingLines
-              strokeColor="#003A8C"
-              strokeWidth="5"
-              animationDuration="1.0"
-              width="45"
-              visible={true}
-            />~{timeLeft / 1000} sec
-          </div>}
+          <HexLoader timeLeft={timeLeft / 1000} />}
         <br />
 
       </div>
