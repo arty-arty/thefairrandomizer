@@ -83,7 +83,7 @@ const sendProofOfRandomTransaction = async ({ blockSeed, blockId, pk }) => {
     console.log("Trying to connect to algod")
     let params = await algodclient.getTransactionParams().do();
     console.log({ params })
-    params.lastRound = params.lastRound - 50;
+    params.lastRound = params.lastRound - 500;
     // To be able to see previous Blocks in AVM v7 rounds range has to be smaller
     // Maybe 50 is too much. But just in case of bigger safespace between block commitment and random generation.
 
@@ -109,6 +109,7 @@ const sendProofOfRandomTransaction = async ({ blockSeed, blockId, pk }) => {
 
     let tx = (await algodclient.sendRawTransaction(signed).do());
     console.log("Transaction : " + tx.txId);
+    
     const confirmedTxn = await algosdk.waitForConfirmation(algodclient, tx.txId, 4);
     //Get the completed Transaction
     console.log("Transaction " + tx.txId + " confirmed in round " + confirmedTxn["confirmed-round"]);

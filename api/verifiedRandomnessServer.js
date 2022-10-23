@@ -44,12 +44,15 @@ app.post('/random/proofOfRandom', async function (req, res) {
     //Put try catch here
     if (!futureBlockFrom[pk]) { res.json({ pk: "invalid, get a new one at /random/publicKey" }); res.end(); return; }
     const futureBlockId = parseInt(futureBlockFrom[pk])
+
+    console.log(await algodclient.statusAfterBlock(futureBlockId + 1).do())
     const blk = await algodclient.block(futureBlockId).do();
+    if (!blk?.block?.seed) { res.end() }
     //catch here with 5 5 second retries
     console.log({ blk });
     //const blk_hash = base32.encode(blk["cert"]["prop"]["dig"]).replace(/=/g, "")
     //const blk_hash = Uint8Array.from(blk["cert"]["prop"]["dig"])
-    const blk_hash = Uint8Array.from(blk.block.seed)
+    const blk_hash = Uint8Array.from(blk?.block?.seed)
     console.log({ blk_hash });
 
     if (pk) {
