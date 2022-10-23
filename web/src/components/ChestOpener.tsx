@@ -5,7 +5,7 @@ import { Button } from "antd";
 import styles from "./ChestOpener.module.css";
 import axios from "axios";
 
-const waitingTime = 11 * 1000; // initial time in milliseconds
+const waitingTime = 30 * 1000; // initial time in milliseconds
 const interval = 1000; // interval to change remaining time amount
 
 type ChestOpenerType = {
@@ -35,7 +35,6 @@ const decidePrize = (n: Number) => {
 }
 
 import { TechnicalData } from "./RandomGenerator";
-import { RotatingLines } from "react-loader-spinner";
 import useCountDown from "react-countdown-hook";
 import { HexLoader } from "./HexLoader";
 const LootEnumeration = ({
@@ -79,7 +78,7 @@ const ChestOpener: FunctionComponent<ChestOpenerType> = ({
   const [randData, setRandData] = useState<RandData>({});
   const [pk, setPk] = useState(null);
   const [currentChestImage, setCurrentChestImage] = useState("../closed.png");
-  const [timeLeft, { start, pause, resume, reset }] = useCountDown(waitingTime + 7000, interval);
+  const [timeLeft, { start, pause, resume, reset }] = useCountDown(waitingTime + 10000, interval);
 
   const getRandom = async ({ pk, start }: { pk: String, start: Function }) => {
     if (!pk) { setLoading(false); return; }//clear spinning wheel
@@ -87,7 +86,7 @@ const ChestOpener: FunctionComponent<ChestOpenerType> = ({
     const randData = await axios({
       method: 'post',
       url: 'https://api.algotool.app/random/proofOfRandom',
-      timeout: 25000, // only wait for 20s
+      timeout: 60000, // only wait for 20s
       data: { pk }
     }).catch(() => { setLoading(false); }) || { data: null }
     const data = randData?.data
@@ -128,13 +127,13 @@ const ChestOpener: FunctionComponent<ChestOpenerType> = ({
         <br />
 
       </div>
-      {!randData.txId ? <LootEnumeration {...{
+      {!randData?.txId ? <LootEnumeration {...{
         loot1,
         loot2,
         loot3,
         loot4
       }}></LootEnumeration> : null}
-      {(randData.txId || loading) ? <TechnicalData {...{ currentRound, randData, pk, timeLeft: 0 }}></TechnicalData> : null
+      {(randData?.txId || loading) ? <TechnicalData {...{ currentRound, randData, pk, timeLeft }}></TechnicalData> : null
       }
     </div >
   );
