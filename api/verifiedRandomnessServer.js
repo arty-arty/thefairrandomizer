@@ -46,13 +46,15 @@ app.post('/random/proofOfRandom', async function (req, res) {
     const futureBlockId = parseInt(futureBlockFrom[pk])
     const blk = await algodclient.block(futureBlockId).do();
     //catch here with 5 5 second retries
-
-    const blk_hash = base32.encode(blk["cert"]["prop"]["dig"]).replace(/=/g, "")
+    console.log({ blk });
+    //const blk_hash = base32.encode(blk["cert"]["prop"]["dig"]).replace(/=/g, "")
+    //const blk_hash = Uint8Array.from(blk["cert"]["prop"]["dig"])
+    const blk_hash = Uint8Array.from(blk.block.seed)
     console.log({ blk_hash });
 
     if (pk) {
         const { proof, txId, txUrl, randNumber } = await sendProofOfRandomTransaction({ blockSeed: blk_hash, blockId: futureBlockId, pk });
-        res.json({ proof, randNumber, txId, txUrl, futureBlockId, futureBlockHash: blk_hash, futureBlockUrl: "https://testnet.algoexplorer.io/block/" + futureBlockId })
+        res.json({ proof, randNumber, txId, txUrl, futureBlockId, })
         delete futureBlockFrom[pk];
     }
     res.end();

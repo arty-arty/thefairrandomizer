@@ -1,5 +1,4 @@
 import base64
-from email import message
 
 from algosdk.future import transaction
 from algosdk import mnemonic
@@ -60,18 +59,15 @@ def verified_random_announcer(benefactor, feeprovider):
         Gtxn[1].amount() == Int(0),
     )
 
-    futureBlockId = JsonRef.as_uint64(
-        Txn.note(), Bytes("blockSeedTakenFromBlockWithId"))
-    blockSeed = Block.seed(futureBlockId)
-    #message = Sha256(blockSeed)
-    message = blockSeed
-    proof = Base64Decode.std(JsonRef.as_string(
-        Txn.note(), Bytes("proof")))
-    randNumber0 = JsonRef.as_uint64(
-        Txn.note(), Bytes("randNumber"))
+    blockSeed = Substring(Txn.note(), Int(15), Int(67))
+    message = Sha256(blockSeed)
 
-    publicKey = Base64Decode.std(JsonRef.as_string(
-        Txn.note(), Bytes("publicKey")))
+    futureBlockId = atoi(Substring(Txn.note(), Int(307), Int(315)))
+    actualBlockSeed = Block.seed(futureBlockId)
+
+    proof = Base64Decode.std(Substring(Txn.note(), Int(80), Int(188)))
+    randNumber0 = atoi(Substring(Txn.note(), Int(267), Int(270)))
+    publicKey = Base64Decode.std(Substring(Txn.note(), Int(205), Int(249)))
 
     program = And(
         Gtxn[1].sender() == Addr(feeprovider),

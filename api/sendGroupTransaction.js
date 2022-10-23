@@ -11,7 +11,10 @@ let algodclient = new algosdk.Algodv2(token, server, port);
 
 //const lsigProgram = "ByACAAEmASCvH0TTSdr5SmUo5gQtWhkAxQC+PHS8DNZqPRwzwm8ZPzMAASISMgSBAhIzABAjEhAzAAkyAxIQMwAVMgMSEDMAIDIDEhAzAAgiEhAzARAjEhAzAQkyAxIQMwEVMgMSEDMBIDIDEhAzAQgiEhAQMwEAKBIzAQcoEhAxBVcPNAExBVdQbF4BMQVXzSxeAdAANQE1ADQBIxIQEEM="
 //const lsigProgram = "ByADAAEwJgEgrx9E00na+UplKOYELVoZAMUAvjx0vAzWaj0cM8JvGT8zAAEiEjIEgQISMwAQIxIQMwAJMgMSEDMAFTIDEhAzACAyAxIQMwAIIhIQMwEQIxIQMwEJMgMSEDMBFTIDEhAzASAyAxIQMwEIIhIQEDMBACgSMwEHKBIQMQWBiwKBA1iIAEYxBVdQbF4BIlUSEDEFVw80ATEFV1BsXgExBVfNLF4B0AA1ATUANAEjEhAQQzUDgQo0A5SJNQQ0BCQPRDQEgTkORDQEJAmJNQI0AhUiDUAABCJCACE0AiJViP/ZNAIVIwmI/8kLNAIjNAIVUjQCTIj/1Uw1AgiJ"
-const lsigProgram = "ByADAAEwJgEgRx/xYa3UtcKnvPIl/zNRSNAAHT4Ry/YY+4hSB5ZDy1szAAEiEjIEgQISMwAQIxIQMwAJMgMSEDMAFTIDEhAzACAyAxIQMwAIIhIQMwEQIxIQMwEJMgMSEDMBFTIDEhAzASAyAxIQMwEIIhIQEDMBACgSMwEHKBIQMQWBiwKBA1iIAEYxBVdQbF4BIlUSEDEFVw80ATEFV1BsXgExBVfNLF4B0AA1ATUANAEjEhAQQzUDgQo0A5SJNQQ0BCQPRDQEgTkORDQEJAmJNQI0AhUiDUAABCJCACE0AiJViP/ZNAIVIwmI/8kLNAIjNAIVUjQCTIj/1Uw1AgiJ"
+//const lsigProgram = "ByADAAEwJgEgRx/xYa3UtcKnvPIl/zNRSNAAHT4Ry/YY+4hSB5ZDy1szAAEiEjIEgQISMwAQIxIQMwAJMgMSEDMAFTIDEhAzACAyAxIQMwAIIhIQMwEQIxIQMwEJMgMSEDMBFTIDEhAzASAyAxIQMwEIIhIQEDMBACgSMwEHKBIQMQWBiwKBA1iIAEYxBVdQbF4BIlUSEDEFVw80ATEFV1BsXgExBVfNLF4B0AA1ATUANAEjEhAQQzUDgQo0A5SJNQQ0BCQPRDQEgTkORDQEJAmJNQI0AhUiDUAABCJCACE0AiJViP/ZNAIVIwmI/8kLNAIjNAIVUjQCTIj/1Uw1AgiJ"
+//const lsigProgram = "ByADAAEwJgEgRx/xYa3UtcKnvPIl/zNRSNAAHT4Ry/YY+4hSB5ZDy1szAAEiEjIEgQISMwAQIxIQMwAJMgMSEDMAFTIDEhAzACAyAxIQMwAIIhIQMwEQIxIQMwEJMgMSEDMBFTIDEhAzASAyAxIQMwEIIhIQEDMBACgSMwEHKBIQMQWBiwKBA1iIAFoxBVdQbF4BIlUSEDEFVw80MQWBswKBCFiIAD/RABIQMQVXDzQBMQVXUGxeATEFV80sXgHQADUBNQA0ASMSEBBDNQOBCjQDlIk1BDQEJA9ENASBOQ5ENAQkCYk1AjQCFSINQAAEIkIAITQCIlWI/9k0AhUjCYj/yQs0AiM0AhVSNAJMiP/VTDUCCIk="
+//const lsigProgram = "ByACAAEmAiBHH/FhrdS1wqe88iX/M1FI0AAdPhHL9hj7iFIHlkPLWwVwcm9vZjMAASISMgSBAhIzABAjEhAzAAkyAxIQMwAVMgMSEDMAIDIDEhAzAAgiEhAzARAjEhAzAQkyAxIQMwEVMgMSEDMBIDIDEhAzAQgiEhAQMwEAKBIzAQcoEhAxBYAKcmFuZE51bWJlcl8BMQUpXwBeASJVEhAxBYAdYmxvY2tTZWVkVGFrZW5Gcm9tQmxvY2tXaXRoSWRfAdEAATEFKV8AXgExBYAJcHVibGljS2V5XwBeAdAANQE1ADQBIxIQEEM="
+const lsigProgram = "ByACAAEmAiBHH/FhrdS1wqe88iX/M1FI0AAdPhHL9hj7iFIHlkPLWwVwcm9vZjMAASISMgSBAhIzABAjEhAzAAkyAxIQMwAVMgMSEDMAIDIDEhAzAAgiEhAzARAjEhAzAQkyAxIQMwEVMgMSEDMBIDIDEhAzAQgiEhAQMwEAKBIzAQcoEhAxBYAKcmFuZE51bWJlcl8BMQUpXwBeASJVEhAxBYAdYmxvY2tTZWVkVGFrZW5Gcm9tQmxvY2tXaXRoSWRfAdEAMQUpXwBeATEFgAlwdWJsaWNLZXlfAF4B0AA1ATUANAEjEhAQQw=="
 const lsig = new algosdk.LogicSigAccount(new Uint8Array(Buffer.from(lsigProgram, "base64")))
 
 console.log(process.env)
@@ -40,9 +43,9 @@ const generateKeyPairAndMemorize = async () => {
 
 const generateProofFromSeedAndSk = async ({ blockSeed, sk }) => {
 
-    const hashedSeed = new Uint8Array(Buffer.from(crypto.createHash('sha256').update(blockSeed).digest('hex'), 'hex'));
-    console.log({ message: Buffer.from(hashedSeed).toString("base64") })
-    const proof = await dcrypto.vrf_algo_prove(sk, hashedSeed);
+    //const hashedSeed = new Uint8Array(Buffer.from(crypto.createHash('sha256').update(blockSeed).digest('hex'), 'hex'));
+    //console.log({ message: Buffer.from(hashedSeed).toString("base64") })
+    const proof = await dcrypto.vrf_algo_prove(sk, blockSeed);
     console.log({ proof: Buffer.from(proof).toString('base64') })
 
     return { proof: Buffer.from(proof).toString('base64') }
@@ -69,15 +72,21 @@ const sendProofOfRandomTransaction = async ({ blockSeed, blockId, pk }) => {
     //And it will check that the proof is indeed correct by vrf_verify
 
     const randNumber = Uint8Array.from(Buffer.from(proof, 'base64'))[0]
-    const randNumberStr = String(randNumber).padStart(3, '0');
-    console.log({ randNumberStr });
-    let noteText = `{"blockSeed": "` + blockSeed + `", "proof": "` + proof + `", "publicKey": "` + pk + `", "randNumber": "` + randNumberStr + `", "blockSeedTakenFromBlockWithId": "` + blockId + `"}`
+    //const randNumberStr = String(randNumber).padStart(3, '0');
+    const randNumberStr = String(randNumber);
+    console.log({ randNumberStr, randNumber });
+    let noteText = `{"proof": "` + proof + `", "publicKey": "` + pk + `", "randNumber": ` + randNumberStr + `, "blockSeedTakenFromBlockWithId": ` + blockId + `}`
+    console.log({ noteText })
     const enc = new TextEncoder();
     const note = enc.encode(noteText);
 
     console.log("Trying to connect to algod")
     let params = await algodclient.getTransactionParams().do();
     console.log({ params })
+    params.lastRound = params.lastRound - 50;
+    // To be able to see previous Blocks in AVM v7 rounds range has to be smaller
+    // Maybe 50 is too much. But just in case of bigger safespace between block commitment and random generation.
+
     let txn1 = algosdk.makePaymentTxnWithSuggestedParams(sender, receiver, amount, closeToRemaninder, note, { ...params, fee: 0, flatFee: true })
     let txn2 = algosdk.makePaymentTxnWithSuggestedParams(recoveredAccount.addr, recoveredAccount.addr, amount, closeToRemaninder, note, { ...params, flatFee: true, fee: 2000 })
     // Create the LogicSigTransaction with contract account LogicSigAccount
@@ -107,7 +116,7 @@ const sendProofOfRandomTransaction = async ({ blockSeed, blockId, pk }) => {
     //algosdk.makeLogicSigAccountTransactionSigner
     delete skFrom[pk]
     return {
-        proof, randNumber: randNumberStr, txId: tx.txId, txUrl: "https://testnet.algoexplorer.io/tx/" + tx.txId, pk
+        proof, randNumber: randNumber, txId: tx.txId, txUrl: "https://testnet.algoexplorer.io/tx/" + tx.txId, pk
     }
 }
 
