@@ -1,18 +1,19 @@
-# The Fair Randomizer
+# 🍀The Fair Randomizer
 
-Meet The Fair Randomizer. A simple proven-fair upgrade for your favourite random numbers generator. It is a web2 API that generates true random numbers. The fairness is proved by a smart signature running on decentralized Algorand network.  Due to [our smart signature](https://github.com/arty-arty/thefairrandomizer/blob/main/contract/mainWithNumber.py#L43), random numbers can be published only if proven by decentralized network of Algorand. So, the very fact of transaction means - each published random number was verified! The proof stays forever on-chain 
+Meet The Fair Randomizer. A simple proven-fair upgrade for your favourite random numbers generator. It is a web2 API that generates true random numbers. A smart signature running on decentralized network of Algorand guarantees the fairness. [The proof is stored forever on-chain](https://testnet.algoexplorer.io/tx/AGHJMKUAK2ICEEWLKCDH7BSPU3K7PYJ7J6XR6VEL5BOIBNSNVXCQ). Thanks to a new [AVM 7 Teal opcode vrf_verify](https://developer.algorand.org/articles/avm-7-new-features/), showing this transaction to a user means complete fairness
+
+Mathematically secured by [Verifiable Random Functions on Algorand](https://developer.algorand.org/articles/randomness-on-algorand/). Due to [our smart signature](https://github.com/arty-arty/thefairrandomizer/blob/main/contract/mainWithNumber.py#L43), random numbers can be published in transaction note, only if proven by decentralized network of Algorand. So, the very fact of transaction means - each published random number was verified! 
 
  web3Neither side can influence the outcome. Each number fairness is verified
 
 stored inside a transaction message on-Algorand-chain . So,the fairness is proved by web3. 
 
-Mathematically secured by [Verifiable Random Functions on Algorand](https://developer.algorand.org/articles/randomness-on-algorand/).
+
 
 [See the prototype](https://rand.algotool.app/) of a [verified lootbox opener](https://rand.algotool.app/) that we built with this API. 
 Each resulting number is announced publically, 
 
-After a call it returns a random number. And an immutable proof stored as a transaction on-chain and verified via a Smart Conract. Thanks to a new Teal opcode vrf_verify, showing this transaction to a user means complete fairness.
-Read more to understand why it can not be tampered, altered, pre-calculated. And means completely secure fairness.
+After a call it returns a random number. And an immutable proof stored as a transaction on-chain and verified via a Smart Conract. Thanks to a new Teal opcode vrf_verify, showing this transaction to a user means complete fairness. Read more to understand why it can not be tampered, altered, pre-calculated. And means completely secure fairness.
 
 The [transaction proof with a smart signature](https://testnet.algoexplorer.io/tx/2D6KBCWXAXULQBQZZVX3RS5WQGVRN355AUISYEXLCF6M56BP3DVQ) has a message which is parsed and verified within the smart contract. The very fact that this transaction exists - means the random number was verified.
 The
