@@ -16,7 +16,7 @@ app.post('/', function (req, res) {
 })
 
 const futureBlockFrom = {}
-const safeSpace = 3;
+const safeSpace = 8;
 
 app.get('/random/publicKey', async function (req, res) {
     let { futureBlockId } = req.query
