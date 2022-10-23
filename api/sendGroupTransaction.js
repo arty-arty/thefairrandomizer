@@ -75,7 +75,8 @@ const sendProofOfRandomTransaction = async ({ blockSeed, blockId, pk }) => {
     //const randNumberStr = String(randNumber).padStart(3, '0');
     const randNumberStr = String(randNumber);
     console.log({ randNumberStr, randNumber });
-    let noteText = `{"proof": "` + proof + `", "publicKey": "` + pk + `", "randNumber": ` + randNumberStr + `, "blockSeedTakenFromBlockWithId": ` + blockId + `}`
+    //let noteText = `{"proof": "` + proof + `", "publicKey": "` + pk + `", "randNumber": ` + randNumberStr + `, "blockSeedTakenFromBlockWithId": ` + blockId + `}`
+    let noteText = JSON.stringify({ "blockSeedTakenFromBlockWithId": blockId, "publicKey": pk, "randNumber": parseInt(randNumberStr, 10), "proof": proof })
     console.log({ noteText })
     const enc = new TextEncoder();
     const note = enc.encode(noteText);
@@ -109,7 +110,7 @@ const sendProofOfRandomTransaction = async ({ blockSeed, blockId, pk }) => {
 
     let tx = (await algodclient.sendRawTransaction(signed).do());
     console.log("Transaction : " + tx.txId);
-    
+
     const confirmedTxn = await algosdk.waitForConfirmation(algodclient, tx.txId, 4);
     //Get the completed Transaction
     console.log("Transaction " + tx.txId + " confirmed in round " + confirmedTxn["confirmed-round"]);
