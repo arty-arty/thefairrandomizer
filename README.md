@@ -1,6 +1,10 @@
 # 🍀The Fair Randomizer
 
-Meet The Fair Randomizer. A simple proven-fair upgrade for your favourite random numbers generator. It is a web2 API that generates true random numbers. [A smart signature](https://github.com/arty-arty/thefairrandomizer/blob/main/contract/mainWithNumber.py#L46) running on decentralized network of Algorand guarantees the fairness. [The proof is stored forever on-chain](https://testnet.algoexplorer.io/tx/RGZQ6AGWZIMDZBWBOVCOQXFH3ITFI5SUGYFEBEHLTVET2Y4XS46A) inside of a transaction note. Thanks to a new [AVM 7 Teal opcodes vrf_verify and block](https://developer.algorand.org/articles/avm-7-new-features/), the very fact that this transaction exists - means mathematically verified randomness. Showing this transaction to the end-user demonstrates complete fairness, transparency, and trust. Sounds like an impossible magic-trick? Might 
+Meet The Fair Randomizer. A simple proven-fair upgrade for your favourite random numbers generator. It is a web2 API that generates true random numbers. [A smart signature](https://github.com/arty-arty/thefairrandomizer/blob/main/contract/mainWithNumber.py#L46) running on decentralized network of Algorand guarantees the fairness. [The proof is stored forever on-chain](https://testnet.algoexplorer.io/tx/RGZQ6AGWZIMDZBWBOVCOQXFH3ITFI5SUGYFEBEHLTVET2Y4XS46A) inside of a transaction note. Thanks to a new [AVM 7 Teal opcodes vrf_verify and block](https://developer.algorand.org/articles/avm-7-new-features/), the very fact that this transaction exists - means mathematically verified randomness. Showing this transaction to the end-user demonstrates complete fairness, transparency, and trust. 
+
+Sounds like an impossible magic-trick? [Learn more about security and fairness](#security-and-fairness) or just play around with a prototype.
+
+## A short 
 
 Built its capable to generate in parallel. Due to inheriting Algorand properties [Throughtput is as fantastic]() as it is for the Algorand system
 
@@ -17,9 +21,8 @@ stored inside a transaction message on-Algorand-chain . So,the fairness is prove
 [See the prototype](https://rand.algotool.app/) of a [verified lootbox opener](https://rand.algotool.app/) that we built with this API. 
 Each resulting number is announced publically, 
 
-After a call it returns a random number. And an immutable proof stored as a transaction on-chain and verified via a Smart Conract. Thanks to a new Teal opcode vrf_verify, showing this transaction to a user means complete fairness. Read more to understand why it can not be tampered, altered, pre-calculated. And means completely secure fairness.
 
-The [transaction proof with a smart signature](https://testnet.algoexplorer.io/tx/RGZQ6AGWZIMDZBWBOVCOQXFH3ITFI5SUGYFEBEHLTVET2Y4XS46A) has a message which is parsed and verified within the smart contract. The very fact that this transaction exists - means the random number was verified.
+The [transaction proof with a smart signature](https://testnet.algoexplorer.io/tx/RGZQ6AGWZIMDZBWBOVCOQXFH3ITFI5SUGYFEBEHLTVET2Y4XS46A) has a message which is parsed and [verified within the smart contract](https://github.com/arty-arty/thefairrandomizer/blob/main/contract/mainWithNumber.py#L46). The very fact that this transaction exists - means the random number was verified.
 The
 
 ```
@@ -30,16 +33,6 @@ The
   "proof": "JBV3L12SKU1l3WY5iaxcnvU/QZyiso2UaXJ+tPmJaDf14fbWLf3uiqhxRbX/ZKjL1NpdSrDX/JC+6lcb5Mia0/9g1jad6hdaQFt5REV5+gg="
 }
 ```
-
- Then returns a rad
-with a mathematically via web2 again.
-
-$$App \to Web2 \to Web3 \to Web2 \to Link $$
-
-Sometimes you need to provide a truly random number. Sometimes
- 
-
-which can generate a random number within the range you specify and verify its fairness. Thanks to the VRF oracle and vrf_verify function on Algorand Blockchain anyone will be able to observe the fairness of randomization.
 
 Cambridge dictionary defines fairness as "the quality of treating people equally...". Each user gets a uniformly ditributed random number with equal probabilty.
 
@@ -64,9 +57,9 @@ Simple! Just do a GET request on https://api.algotool.app/random/publicKey. Resp
 ```
 Where "pk" is your public key, and its dual secret key is temorarily stored on the server. The "firstRound" field is the current block on the Algorand chain. The "futureBlockId" field is a future block id with a yet unknown block hash to be used as a seed for random number generation.
 
-Wait until the block with "futureBlockId" is created, ~15 secs for a 3 block space.
+Wait until the block with "futureBlockId" is created, ~15 secs for a 3 block safety-space. ~36 secs for an 8 block safety-space.
 
-By doing post, redeem your resulting random
+By doing post, redeem your resulting random.
 
 You get a response with some useful info:
 ```
@@ -81,7 +74,8 @@ You get a response with some useful info:
 }
 ```
 
-The end user . It's like a bank receipt, but it's a proof of random 
+Explain that he must
+The end user needs. It's like a bank receipt, but it's a proof of random.  
 
 
 Serves a decentralized source of truth
