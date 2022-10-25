@@ -1,6 +1,10 @@
 # 🍀The Fair Randomizer
 
-Meet The Fair Randomizer. A simple proven-fair upgrade for your favourite random numbers generator. It is a web2 API that generates true random numbers. A smart signature running on decentralized network of Algorand guarantees the fairness. [The proof is stored forever on-chain](https://testnet.algoexplorer.io/tx/AGHJMKUAK2ICEEWLKCDH7BSPU3K7PYJ7J6XR6VEL5BOIBNSNVXCQ). Thanks to a new [AVM 7 Teal opcode vrf_verify](https://developer.algorand.org/articles/avm-7-new-features/), showing this transaction to a user means complete fairness
+Meet The Fair Randomizer. A simple proven-fair upgrade for your favourite random numbers generator. It is a web2 API that generates true random numbers. [A smart signature](https://github.com/arty-arty/thefairrandomizer/blob/main/contract/mainWithNumber.py#L46) running on decentralized network of Algorand guarantees the fairness. [The proof is stored forever on-chain](https://testnet.algoexplorer.io/tx/RGZQ6AGWZIMDZBWBOVCOQXFH3ITFI5SUGYFEBEHLTVET2Y4XS46A) inside of a transaction note. Thanks to a new [AVM 7 Teal opcodes vrf_verify and block](https://developer.algorand.org/articles/avm-7-new-features/), the very fact that this transaction exists - means mathematically verified randomness. Showing this transaction to the end-user demonstrates complete fairness, transparency, and trust. Sounds like an impossible magic-trick? Might 
+
+Built its capable to generate in parallel. Due to inheriting Algorand properties [Throughtput is as fantastic]() as it is for the Algorand system
+
+
 
 Mathematically secured by [Verifiable Random Functions on Algorand](https://developer.algorand.org/articles/randomness-on-algorand/). Due to [our smart signature](https://github.com/arty-arty/thefairrandomizer/blob/main/contract/mainWithNumber.py#L43), random numbers can be published in transaction note, only if proven by decentralized network of Algorand. So, the very fact of transaction means - each published random number was verified! 
 
@@ -15,16 +19,15 @@ Each resulting number is announced publically,
 
 After a call it returns a random number. And an immutable proof stored as a transaction on-chain and verified via a Smart Conract. Thanks to a new Teal opcode vrf_verify, showing this transaction to a user means complete fairness. Read more to understand why it can not be tampered, altered, pre-calculated. And means completely secure fairness.
 
-The [transaction proof with a smart signature](https://testnet.algoexplorer.io/tx/2D6KBCWXAXULQBQZZVX3RS5WQGVRN355AUISYEXLCF6M56BP3DVQ) has a message which is parsed and verified within the smart contract. The very fact that this transaction exists - means the random number was verified.
+The [transaction proof with a smart signature](https://testnet.algoexplorer.io/tx/RGZQ6AGWZIMDZBWBOVCOQXFH3ITFI5SUGYFEBEHLTVET2Y4XS46A) has a message which is parsed and verified within the smart contract. The very fact that this transaction exists - means the random number was verified.
 The
 
 ```
 {
-  "blockSeed": "NSSFRA5W25VVDGVIDPAOPO665CSLYSSIDCPZH5FCLOD7C6ENJIZA",
-  "proof": "wWLDbLk9ryreutL04knGyIVeGBuHfauPmVp0KVyZ3sZ5jEdkDPdDOXYWd3ahibL0LPzps1y617nIorYDMGI3gFnw7JZSg8dxYK0PSarGHAs=",
-  "publicKey": "pb+Sr4q2cStAGSkkz/m7XjsqkU5PQ9KnXG/Euzu0wrc=",
-  "randNumber": "193",
-  "blockSeedTakenFromBlockWithId": "24964826"
+  "blockSeedTakenFromBlockWithId": 25062547,
+  "publicKey": "dJbe6Um7AAOxictqfKdCce0aEdBN8/F1iBkdzB7moeQ=",
+  "randNumber": 36,
+  "proof": "JBV3L12SKU1l3WY5iaxcnvU/QZyiso2UaXJ+tPmJaDf14fbWLf3uiqhxRbX/ZKjL1NpdSrDX/JC+6lcb5Mia0/9g1jad6hdaQFt5REV5+gg="
 }
 ```
 
@@ -106,31 +109,32 @@ Clone
 
 The fair randomizer has several layers of protection:
 
-1. Parties agree how many blocks in the future to wait. Could be 3 blocks from now. Or more to secure against a node running with a delay. This future block has a unique block hash which is taken as a random seed. A node runner could choose. It is pretty hard for attacker to influence it in a favorable way. Yet, still possible. Verifiable pseudo random functions come to the rescue.
+1. Parties agree how many blocks in the future to wait. Could be 3 or 8 blocks from now for more security. This future block will have a unique block hash which will be taken as a random seed. It is pretty hard for attacker to influence it in a favorable way. Yet, still possible. Verifiable pseudo random functions come to the rescue.
     
-    A tip combine several block hashes to.
-    What if the random producer (the one who knows VRF secret key), is the block producer this time. And  
+    A tip: combine N several consecutive block hashes in production. This way a "succesfull hack" will require corrupting N randomly chosen block producers, which is even more cumbersome.
 
-2. One time public-secret VRF keypair is generated. And is shared with the user. In this way the random number producer can not bruteforce dif
-Because it's pre-agreed to before the actual seed is known, and so result could be known.
+2. One time public-secret VRF keypair is generated. And is shared with the user. In this way the random number producer can not bruteforce different public keys to get a needed result. The user just has to make sure that the promised public key = the public key seen in smart signature verified transaction. 
 
-2. Algorand's [verifiable random function](https://en.wikipedia.org/wiki/Verifiable_random_function) as in [draft-irtf-cfrg-vrf-03](https://tools.ietf.org/html/draft-irtf-cfrg-vrf-03) is actually a keyed variant of hash that provides a 80-byte proof that it's output was calculated correctly.
+2. Algorand's [verifiable random function](https://en.wikipedia.org/wiki/Verifiable_random_function) as in [draft-irtf-cfrg-vrf-03](https://tools.ietf.org/html/draft-irtf-cfrg-vrf-03) is actually a keyed variant of hash that provides a 80-byte proof that it's output was calculated correctly. The proof is proven to be a pseudorandom function of the seed.
 
 3. In AVMv7 Teal Contract language of Algorand introduced an on-chain method - vrf_verify opcode. Which takes the public key, seed, and a proof - and says if the pseudorandom function was calculated correctly. 
-For this proof of concept we use a [logic signature](https://developer.algorand.org/docs/get-details/dapps/smart-contracts/smartsigs/modes/#logic-signatures) in a mode when it governs a special account uniqely assigned to it's code. It allows or denies transactions based on certain criteria.
+For this prototype we use a [logic signature](https://developer.algorand.org/docs/get-details/dapps/smart-contracts/smartsigs/modes/#logic-signatures) in a mode when it governs a special account uniqely assigned to it's code. It allows or denies transactions based on certain criteria.
 
 Here it parses the note like this:
 
 ```python
-    blockSeed = Substring(Txn.note(), Int(15), Int(67))
-    message = Sha256(blockSeed)
-
-    proof = Base64Decode.std(Substring(Txn.note(), Int(80), Int(188)))
-    randNumber0 = atoi(Substring(Txn.note(), Int(267), Int(270)))
-    publicKey = Base64Decode.std(Substring(Txn.note(), Int(205), Int(249)))
+    futureBlockId = JsonRef.as_uint64(
+        Txn.note(), Bytes("blockSeedTakenFromBlockWithId"))
+    message = Block.seed(futureBlockId)
+    proof = Base64Decode.std(JsonRef.as_string(
+        Txn.note(), Bytes("proof")))
+    randNumber0 = JsonRef.as_uint64(
+        Txn.note(), Bytes("randNumber"))
+    publicKey = Base64Decode.std(JsonRef.as_string(
+        Txn.note(), Bytes("publicKey")))
 ```
 
-And approves a transaction only if the note contains the truth. Only if the 
+And approves a transaction only if the note contains the truth. Only if:
 
 ```python
    program = And(
@@ -141,7 +145,7 @@ And approves a transaction only if the note contains the truth. Only if the
     )
 ```
 
-4. Logic signature can be replayed with the same proof, seed, publickey satisfying the vrf_verify equation. How do we protect? By checking the group from inside of a signature, we require another transaction from our authorized account in this group. Without signing by authorized account each time, replayed transactions by other people just fail.
+4. Logic signature could be replayed with the same proof, seed, and publickey satisfying the vrf_verify equation. How do we protect? By checking the group from inside of a signature, we require another transaction from our authorized account in this group. Without signing by authorized account each time, replayed transactions by other people just fail.
 
 ```python
    program = And(
@@ -155,14 +159,16 @@ Another nice feature of Algorand is pooled fee. In our setup actually this autho
 
 ## Examples of usability
 
-Here are examples of what can be built using our API.
-This is what is going to make your end-users say: 
-> "Wow, that was, fair, I see the proof. I belive the smart signature proof. I can spread the for others to believe." - John The Web3 Believer Edwards
+Here are the examples of what can be built using our API.
+The end-users say something between the lines: 
+> "I did a golden . Wow, that was, fair, I see the proof. I belive the smart signature proof. I can spread the for others to believe." - John The Web3 Believer Edwards
 
 1. Play-to-Earn Gaming
 
 Gaming has gained unprecedented popularity in the 21st century. We can see a [constant increase in the number of players, games and platforms](https://www.digitaljournal.com/pr/play-to-earn-nft-games-market-share-and-growth-insights-2022-global-size-analysis-demand-scope-future-trends-growing-opportunities-and-forecast-to-2027). And more recently, over the past few years, play-to-earn gaming has appeared. And in all play-to-earn projects users must buy nft or tokens in order to play or earn a significant amount of money. As a result, users risk 🔥🪙 their crypto savings. And often in such projects, the blockchain is used mainly for anonymity and convenient interaction with crypto/nft assets.
+
 So what's the deal with randomization? Usually the rewards for some actions/missions in games are determined using random. For example, you are told that you will receive a reward with a 10% chance. But you cannot check the fairness of this 10% random. But you need to pay for each attempt to get a reward. As a result, the user loses his money.
+
 With our randomizer, the randomness of every reward in the game can be verified.
 
 2. Gambling
