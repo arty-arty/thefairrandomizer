@@ -92,26 +92,37 @@ const generateKeyPairAndMemorize = async () => {
 const generateProofFromSeedAndMemorizedSk = async ({ blockSeed, pk }) => {
     const sk = skFrom[pk];
     const proof = await dcrypto.vrf_algo_prove(sk, blockSeed);
-     return { proof: Buffer.from(proof).toString('base64') }
+    return { proof: Buffer.from(proof).toString('base64') }
 }
 ```
 
-## Security and fairness
+## 🛡️ Security and fairness
 
 The fair randomizer has several layers of protection:
 
 1. Parties agree how many blocks in the future to wait. Could be 3 or 8 blocks from now for more security. This future block will have a unique block hash which will be taken as a random seed. It is pretty hard for attacker to influence it in a favorable way. Yet, still possible. Verifiable pseudo random functions come to the rescue.
     
-    A tip: combine N several consecutive block hashes in production. This way a "succesfull hack" will require corrupting N randomly chosen block producers, which is even more cumbersome.
+    A tip: combine N several consecutive block hashes in production. In this way, a "succesfull hack" will require corrupting N randomly chosen block producers, which is even more cumbersome.
 
 2. One time public-secret VRF keypair is generated. And is shared with the user. In this way the random number producer can not bruteforce different public keys to get a needed result. The user just has to make sure that the promised public key = the public key seen in smart signature verified transaction. 
 
-2. Algorand's [verifiable random function](https://en.wikipedia.org/wiki/Verifiable_random_function) as in [draft-irtf-cfrg-vrf-03](https://tools.ietf.org/html/draft-irtf-cfrg-vrf-03) is actually a keyed variant of hash that provides a 80-byte proof that it's output was calculated correctly. The proof is proven to be a pseudorandom function of the seed.
+3. Algorand's [verifiable random function](https://en.wikipedia.org/wiki/Verifiable_random_function) as in [draft-irtf-cfrg-vrf-03](https://tools.ietf.org/html/draft-irtf-cfrg-vrf-03) is actually a keyed variant of hash that provides a 80-byte proof that it's output was calculated correctly. The proof is proven to be a pseudorandom function of the seed.
 
-3. In AVMv7 Teal Contract language of Algorand introduced an on-chain method - vrf_verify opcode. Which takes the public key, seed, and a proof - and says if the pseudorandom function was calculated correctly. 
-For this prototype we use a [logic signature](https://developer.algorand.org/docs/get-details/dapps/smart-contracts/smartsigs/modes/#logic-signatures) in a mode when it governs a special account uniqely assigned to it's code. It allows or denies transactions based on certain criteria.
+4. In AVM 7 Teal Contract language of Algorand introduced an on-chain method - vrf_verify opcode. Which takes the public key, seed, and a proof - and says if the pseudorandom function was calculated correctly. We use it.
+As well as, for this prototype, we use a [logic signature](https://developer.algorand.org/docs/get-details/dapps/smart-contracts/smartsigs/modes/#logic-signatures) in a mode when it governs a special account uniqely assigned to it's code. It allows or denies transactions based on certain criteria. Here the criteria verify the transaction note truthiness
 
-Here it parses the note like this:
+Remember that the [transaction note](https://testnet.algoexplorer.io/tx/4DMYNCS5QYRPQHCXUDO45HC2PVING7N7NSWRCFZTZDYIWKXJWXMQ) looks like this:
+
+```js
+{
+  "blockSeedTakenFromBlockWithId": 25065081,
+  "publicKey": "KkMR2g6BeE6rDBYk3ceqnUeRXcXunsFiNzyTNrM3hC4=",
+  "randNumber": 101,
+  "proof": "ZfMhbzKHP/+kKaMoDino4ywqccseeVq8BLf9WbiGwCNtxVazdnjmsrpq4heVrJIbyMaDsY8Zxwb2v4rj6wH1O+9vfNAUc8lHqFD25pzqNQg="
+}
+``` 
+
+So, here the smart signaure parses the note like that:
 
 ```python
     futureBlockId = JsonRef.as_uint64(
@@ -135,8 +146,10 @@ And approves a transaction only if the note contains the truth. Only if:
             lambda x, y: y == Int(1))
     )
 ```
+Note that for now, we use only the zeroeth byte of the proof. I.e `randNumber0` is uniformly distributed from 0 to 255. We enjoy another AVM 7 feature - 
+block opcode. In this way block seed is automatically taken for the block id from `blockSeedTakenFromBlockWithId` field.
 
-4. Logic signature could be replayed with the same proof, seed, and publickey satisfying the vrf_verify equation. How do we protect? By checking the group from inside of a signature, we require another transaction from our authorized account in this group. Without signing by authorized account each time, replayed transactions by other people just fail.
+5. Logic signature could be replayed with the same proof, seed, and publickey satisfying the vrf_verify equation. How do we protect? By checking the group from inside of a signature, we require another transaction from our authorized account in this group. Without signing by authorized account each time, replayed transactions by other people just fail.
 
 ```python
    program = And(
