@@ -63,15 +63,37 @@ This `txUrl` is like a bank receipt, but it's a proof of random. Give it to the 
 
 ## 🌶️ Bonus
 
-* By changing a few lines. We can run a longer, say a day, or a week long raffle. Just change how many blocks in the future.
+* By changing a few lines. We can run a longer, say a day, or a week long raffle. Just change how many blocks in the future [in the backend code](https://github.com/arty-arty/thefairrandomizer/blob/main/api/verifiedRandomnessServer.js#L19). Publish your public key in Twitter and tell everyone when the futureBlock is. 
 
-* 
+* If you want to tag users by their Discord name. To easily find the winner. Could be a Discord bot using our API. Just add this info 
+to a [transaction note in the backend](https://github.com/arty-arty/thefairrandomizer/blob/main/api/sendGroupTransaction.js#L79).
+
+* Even if you want the users to claim their results anonymously. We've got a solution. Look at the same [transaction note](https://github.com/arty-arty/thefairrandomizer/blob/main/api/sendGroupTransaction.js#L79). Instead of Discord handle, user's wallet, or any other id, add a salted hash of it. Now after the lottery users can securely and anonymously claim the prize.  
 
 * We forked dcypto library and added Algorand VRF functions. It compiles to WASM, so platform agnostic. This is our present to Algorand community. 
-Anyone can use it to whether in Node.js or in browser. Find it in [`/crypto` folder of this repository](https://github.com/arty-arty/thefairrandomizer/tree/main/crypto). Example
+Anyone can use it to whether in Node.js or in browser. Find it in [`/crypto` folder of this repository](https://github.com/arty-arty/thefairrandomizer/tree/main/crypto). Example of usage:
 
+```console
+git clone https://github.com/arty-arty/thefairrandomizer.git
+cd thefairrandomizer/api
+yarn add ../crypto
+```
 The common use case looks like this:
 ```js
+const dcrypto = require("@deliberative/crypto");
+const skFrom = {};
+
+const generateKeyPairAndMemorize = async () => {
+    const { pk, sk } = await dcrypto.vrf_algo_keypair();
+    skFrom[Buffer.from(pk).toString('base64')] = sk
+    return { pk: Buffer.from(pk).toString('base64'), sk }
+}
+
+const generateProofFromSeedAndMemorizedSk = async ({ blockSeed, pk }) => {
+    const sk = skFrom[pk];
+    const proof = await dcrypto.vrf_algo_prove(sk, blockSeed);
+     return { proof: Buffer.from(proof).toString('base64') }
+}
 ```
 
 ## Security and fairness
