@@ -127,7 +127,7 @@ const ChestOpener: FunctionComponent<ChestOpenerType> = ({
         <br />
 
       </div>
-      {!randData?.txId ? <LootEnumeration {...{
+      {!randData?.txId || true ? <LootEnumeration {...{
         loot1,
         loot2,
         loot3,

@@ -125,16 +125,21 @@ img {
     }
 }
 
+.ant-btn {
+    margin-left: calc(85px - 72.85px);
+}
+
 .container {
     overflow: hidden;
     width: 100%;
     // max-width: $max-width;
     margin: 0 auto;
-    padding: 2rem 1rem;
+    //padding: 2rem 1rem;
+    padding-bottom: 1rem;
 }
 
 .col {
-    padding: 1rem;
+    //padding: 1rem;
 
     @media (min-width: $max-width) {
         width: 50%;

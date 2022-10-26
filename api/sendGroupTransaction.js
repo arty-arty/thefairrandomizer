@@ -76,7 +76,7 @@ const sendProofOfRandomTransaction = async ({ blockSeed, blockId, pk }) => {
     const randNumberStr = String(randNumber);
     console.log({ randNumberStr, randNumber });
     //let noteText = `{"proof": "` + proof + `", "publicKey": "` + pk + `", "randNumber": ` + randNumberStr + `, "blockSeedTakenFromBlockWithId": ` + blockId + `}`
-    let noteText = JSON.stringify({ "blockSeedTakenFromBlockWithId": blockId, "publicKey": pk, "randNumber": parseInt(randNumberStr, 10), "proof": proof })
+    let noteText = JSON.stringify({ "blockSeedTakenFromBlockWithId": blockId, "publicKey": pk, "randNumber": parseInt(randNumberStr, 10), "proof": proof, "domain": "https://rand.algotool.app/", userId: "anonymous" })
     console.log({ noteText })
     const enc = new TextEncoder();
     const note = enc.encode(noteText);
