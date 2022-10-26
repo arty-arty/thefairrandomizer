@@ -122,7 +122,7 @@ Remember that the [transaction note](https://testnet.algoexplorer.io/tx/4DMYNCS5
 }
 ``` 
 
-So, here the smart signaure parses the note like that:
+So, here the smart signature parses the note like that:
 
 ```python
     futureBlockId = JsonRef.as_uint64(
