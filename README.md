@@ -2,102 +2,77 @@
 
 Meet The Fair Randomizer. A simple proven-fair upgrade for your favourite random numbers generator. It is a web2 API that generates true random numbers. [A smart signature](https://github.com/arty-arty/thefairrandomizer/blob/main/contract/mainWithNumber.py#L46) running on decentralized network of Algorand guarantees the fairness. [The proof is stored forever on-chain](https://testnet.algoexplorer.io/tx/RGZQ6AGWZIMDZBWBOVCOQXFH3ITFI5SUGYFEBEHLTVET2Y4XS46A) inside of a transaction note. Thanks to a new [AVM 7 Teal opcodes vrf_verify and block](https://developer.algorand.org/articles/avm-7-new-features/), the very fact that this transaction exists - means mathematically verified randomness. Showing this transaction to the end-user demonstrates complete fairness, transparency, and trust. 
 
-Sounds like an impossible magic-trick? [Learn more about security and fairness](#security-and-fairness) or just play around with a prototype.
+Sounds like an impossible magic-trick? [Learn more about security and fairness](#security-and-fairness) or just play around [with a prototype](https://rand.algotool.app) built using this API.
 
-## A short 
+> "I finally decided and did my golden Tesla giveaway. The hype was huge. I posted my public key and a future block number in advance on Twitter. The raffle was held between the first 256 commenters. In a day, I announced [the winning transaction](https://testnet.algoexplorer.io/tx/4DMYNCS5QYRPQHCXUDO45HC2PVING7N7NSWRCFZTZDYIWKXJWXMQ). The 101 commenter won. He is happy. Everyone can see the proof. No heated arguments like the last time." - John Webthree 
 
-Built its capable to generate in parallel. Due to inheriting Algorand properties [Throughtput is as fantastic]() as it is for the Algorand system
-
-
-
-Mathematically secured by [Verifiable Random Functions on Algorand](https://developer.algorand.org/articles/randomness-on-algorand/). Due to [our smart signature](https://github.com/arty-arty/thefairrandomizer/blob/main/contract/mainWithNumber.py#L43), random numbers can be published in transaction note, only if proven by decentralized network of Algorand. So, the very fact of transaction means - each published random number was verified! 
-
- web3Neither side can influence the outcome. Each number fairness is verified
-
-stored inside a transaction message on-Algorand-chain . So,the fairness is proved by web3. 
-
-
-
-[See the prototype](https://rand.algotool.app/) of a [verified lootbox opener](https://rand.algotool.app/) that we built with this API. 
-Each resulting number is announced publically, 
-
-
-The [transaction proof with a smart signature](https://testnet.algoexplorer.io/tx/RGZQ6AGWZIMDZBWBOVCOQXFH3ITFI5SUGYFEBEHLTVET2Y4XS46A) has a message which is parsed and [verified within the smart contract](https://github.com/arty-arty/thefairrandomizer/blob/main/contract/mainWithNumber.py#L46). The very fact that this transaction exists - means the random number was verified.
-The
-
-```
-{
-  "blockSeedTakenFromBlockWithId": 25062547,
-  "publicKey": "dJbe6Um7AAOxictqfKdCce0aEdBN8/F1iBkdzB7moeQ=",
-  "randNumber": 36,
-  "proof": "JBV3L12SKU1l3WY5iaxcnvU/QZyiso2UaXJ+tPmJaDf14fbWLf3uiqhxRbX/ZKjL1NpdSrDX/JC+6lcb5Mia0/9g1jad6hdaQFt5REV5+gg="
-}
-```
-
-Cambridge dictionary defines fairness as "the quality of treating people equally...". Each user gets a uniformly ditributed random number with equal probabilty.
-
-
-
-Any web2 just plugs
-The takeaway is just replacing random you use
 ## Our mission
-Today, on the Internet, we can observe a lot of sites or applications where randomization is used. Along with the development of web3, it becomes very important to verify all randomization. More and more crypto projects/web3 projects/gambling projects have started using random numbers in their work. 
+
+[Cambridge dictionary](https://dictionary.cambridge.org/dictionary/english/fairness) defines fairness as "the quality of treating people equally...". In some sense random is this force which guarantess equal treatment. 
+
+That is probably why, Today, on the Internet, we can observe a lot of sites or applications where randomization is used. Some want to be fair. Some want to look fair. Along with the development of web3, it becomes very important to verify all randomization. More and more crypto projects/web3 projects/gambling projects have started using random numbers in their work. 
 
 People want to know for sure whether there is evidence for the honesty of certain random algorithms. Sometimes the developers don't even tell us about the algorithms they use and about fairness. Our goal is to popularize the verification of randomization with help of Algorand Blockchain and as a result, make someone's life a little better.
 
+[See the prototype](https://rand.algotool.app/) of a [verified lootbox opener](https://rand.algotool.app/) that we built with this API.
+Because this is not a single oracle, but a smart signature. The API is capable of generating unlimited random numbers in parallel. With the speed of [Algorand itself, which is fantastic 6000 TPS](https://developer.algorand.org/articles/algorand-boosts-performance-5x-in-latest-upgrade/).
+
+The [transaction proof](https://testnet.algoexplorer.io/tx/4DMYNCS5QYRPQHCXUDO45HC2PVING7N7NSWRCFZTZDYIWKXJWXMQ) looks like this:
+```js
+{
+  "blockSeedTakenFromBlockWithId": 25065081,
+  "publicKey": "KkMR2g6BeE6rDBYk3ceqnUeRXcXunsFiNzyTNrM3hC4=",
+  "randNumber": 101,
+  "proof": "ZfMhbzKHP/+kKaMoDino4ywqccseeVq8BLf9WbiGwCNtxVazdnjmsrpq4heVrJIbyMaDsY8Zxwb2v4rj6wH1O+9vfNAUc8lHqFD25pzqNQg="
+}
+```
+
 ## How to use it in your own project
 
-Simple! Just do a GET request on https://api.algotool.app/random/publicKey. Response would be like:
-```
+Simple. Just two steps! First, do a GET request on `https://api.algotool.app/random/publicKey`. Response would be like:
+```js
 {
-  "pk": "zs49exsW7eoeF55F5c4jdvNLZESfjVz0zCDrIPiM7kw=",
-  "firstRound": 24990082,
-  "futureBlockId": 24990085
+	"pk": "2rzL4HR8Ru9/QKYSt8uD0xo3Og8xOF5X0oa0gW5Z+RY=",
+	"firstRound": 25086239,
+	"futureBlockId": 25086247
 }
 ```
-Where "pk" is your public key, and its dual secret key is temorarily stored on the server. The "firstRound" field is the current block on the Algorand chain. The "futureBlockId" field is a future block id with a yet unknown block hash to be used as a seed for random number generation.
+Where `pk` is your public key, and its dual secret key is temorarily stored on the server. You are in. Now you only have to claim the verified random number, when it is ready. The `firstRound` field is the current block on the Algorand chain. The `futureBlockId` field is a future block id, with a yet unknown block hash, to be used as a seed for random number generation.
 
-Wait until the block with "futureBlockId" is created, ~15 secs for a 3 block safety-space. ~36 secs for an 8 block safety-space.
+Second, wait until the block with `futureBlockId` is created, ~12 secs for a 3 block safety-space, ~32 secs for an 8 block safety-space.
+By doing post to `https://api.algotool.app/random/proofOfRandom`, with `content-type: application/json`, and json body:
 
-By doing post, redeem your resulting random.
-
-You get a response with some useful info:
-```
+```js 
 {
-  "proof": "SPEjJPraOZbmyIkUy8un3dy7jYvlO4DAECDoEYtaI9ArWkJlbq1DRn29Xssuyy/Qf2BVACxyTLoU6rwBo/UwufvaKabpU1U2NFiGJbi7aQw=",
-  "randNumber": "072",
-  "txId": "XYMQWN5IPCNDUPHRSHS3X6K5T2GQMYXT3SLLVHSWISFLGBZQ37BQ",
-  "txUrl": "https://testnet.algoexplorer.io/tx/XYMQWN5IPCNDUPHRSHS3X6K5T2GQMYXT3SLLVHSWISFLGBZQ37BQ",
-  "futureBlockId": 24990085,
-  "futureBlockHash": "XGYQ6GMS6I36XVWFIV5BGA2RUSKX42LNKCXWQTZ3W4WSYEWYMY4Q",
-  "futureBlockUrl": "https://testnet.algoexplorer.io/block/24990085"
+ "pk": "2rzL4HR8Ru9/QKYSt8uD0xo3Og8xOF5X0oa0gW5Z+RY="
+}
+``` 
+
+redeem your resulting random. You are going to get a response with a verifiable proof, plus some useful info:
+
+```js
+{
+	"proof": "31/0lmET8j/hU8uxFPcKqEKxbxsr9vGjCUqUOZ+ugxv7lgkVYJqkDbP1r2n3Md7M/I18B8ExKdtFaC7iBSURZggT0/fuahG0vwSDrXC1CQ4=",
+	"randNumber": 223,
+	"txId": "5AN3UVXXPL6G7AHRX5FGU3KPSVVO3RZ5VBUVDWDOIDF2W3PGAKBQ",
+	"txUrl": "https://testnet.algoexplorer.io/tx/5AN3UVXXPL6G7AHRX5FGU3KPSVVO3RZ5VBUVDWDOIDF2W3PGAKBQ",
+	"futureBlockId": 25086247
 }
 ```
+This `txUrl` is like a bank receipt, but it's a proof of random. Give it to the user. If the user just checks that the public key has not changed. And the future block they agreed to was indeed in the future. Then the proof is 100% reliable [because of the smart signature](https://github.com/arty-arty/thefairrandomizer/blob/main/contract/mainWithNumber.py#L46).
 
-Explain that he must
-The end user needs. It's like a bank receipt, but it's a proof of random.  
+## 🌶️ Bonus
 
+* By changing a few lines. We can run a longer, say a day, or a week long raffle. Just change how many blocks in the future.
 
-Serves a decentralized source of truth
+* 
 
-## How to use VRF in my
+* We forked dcypto library and added Algorand VRF functions. It compiles to WASM, so platform agnostic. This is our present to Algorand community. 
+Anyone can use it to whether in Node.js or in browser. Find it in [`/crypto` folder of this repository](https://github.com/arty-arty/thefairrandomizer/tree/main/crypto). Example
 
-We believe in onboarding from web2 to web3. To make it smooth
-we proivde - js to be used backend and frontend
-
-## Tech details
-
-1. We forked dcypto library and added. It compiles to WASM, so platform agnostic. This is our present to Algorand community. 
-This way Node.js or in browser 
-
+The common use case looks like this:
+```js
 ```
-Clone
-
-```
-2. The core of our method is a smart signature. 
-
-4. We built a probably most fair loot opening. As a use case example.
-
 
 ## Security and fairness
 
@@ -154,8 +129,9 @@ Another nice feature of Algorand is pooled fee. In our setup actually this autho
 ## Examples of usability
 
 Here are the examples of what can be built using our API.
-The end-users say something between the lines: 
-> "I did a golden . Wow, that was, fair, I see the proof. I belive the smart signature proof. I can spread the for others to believe." - John The Web3 Believer Edwards
+The end-users might say something along the lines:
+
+> "I finally decided and did my golden Tesla giveaway. The hype was huge. I posted my public key and a future block number in advance on Twitter. The raffle was held between the first 256 commenters. In a day, I announced [the winning transaction](https://testnet.algoexplorer.io/tx/4DMYNCS5QYRPQHCXUDO45HC2PVING7N7NSWRCFZTZDYIWKXJWXMQ). The 101 commenter won. He is happy. Everyone can see the proof. No heated arguments like last time." - John Webthree 
 
 1. Play-to-Earn Gaming
 
@@ -178,5 +154,9 @@ With the help of our randomizer, you will be able to observe the fairness of the
 
 4. [Fair random for anyone](https://rand.algotool.app/)!
 
-Any user of our randomizer will be able to generate some numbers for any purpose. For example, to choose which of your friends will seek others in a hide-and-seek game. It's like random.org, but with a proof forever inscribed. The proof can be shown to everyone in the world. With a simple link. It's the ultimate random for the age of web3!  
+Any user of our randomizer will be able to generate some numbers for any purpose. For example, to choose which of your friends will seek others in a hide-and-seek game. Or which friend gets 🏆 your golden Tesla. 
+
+It's like random.org, but with a proof forever inscribed on-chain. The proof can be shown to anyone in the world. With a simple link. 
+Mathematically secured by [Verifiable Random Functions on Algorand](https://developer.algorand.org/articles/randomness-on-algorand/). Due to [our smart signature](https://github.com/arty-arty/thefairrandomizer/blob/main/contract/mainWithNumber.py#L43), random numbers can be published in transaction note, only if proven by decentralized network of Algorand. So, the very fact of transaction means - each published random number was verified! 
+It's the ultimate random for the age of web3!  
 
